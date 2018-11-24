@@ -12,7 +12,7 @@ import Store from '@/page/Store'
 import Setting from '@/page/Setting'
 import TimeDataDetail from '@/page/TimeDataDetail'
 import Dialog from '@/page/Dialog'
-import News from '@/page/news'
+import News from '@/page/News'
 Vue.use(Router);
 
 export default new Router({
