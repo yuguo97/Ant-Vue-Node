@@ -7,12 +7,14 @@
             <el-card class="box-card">
                 <el-tabs v-model="activeName" @tab-click="handleClick">
                     <el-tab-pane label="用户管理" name="first">
-                        <Bar></Bar>
+                        <yBar></yBar>
                     </el-tab-pane>
                     <el-tab-pane label="配置管理" name="second">
-                        <Pie></Pie>
+                        <yPie></yPie>
                     </el-tab-pane>
-                    <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+                    <el-tab-pane label="角色管理" name="third">
+                        <yLine></yLine>
+                    </el-tab-pane>
                     <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
                 </el-tabs>
             </el-card>
@@ -20,14 +22,16 @@
     </div>
 </template>
 <script>
-    import Bar from "@/components/charts/yChartsBar"
-    import Pie from "@/components/charts/yChartsPie"
+    import yBar from "@/components/charts/yChartsBar"
+    import yPie from "@/components/charts/yChartsPie"
+    import yLine from "@/components/charts/yChartsLine"
     import BreadCrumb from "@/components/yBreadCrumb"
     export default {
         name:"ExcessData",
         components:{
-            Bar,
-            Pie,
+            yBar,
+            yPie,
+            yLine,
             BreadCrumb
         },
         data() {

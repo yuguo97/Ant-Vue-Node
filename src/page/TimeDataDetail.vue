@@ -26,7 +26,7 @@
         },
         methods:{
             getMessage(id){
-                this.$ajax.get(`/api/hero/${id}`).then(res=>{
+                this.$ajax.get(`/v1/api/hero/${id}`).then(res=>{
                     console.log(res.data);
                     this.imgArr=res.data.imgArr;
                     this.explain=res.data.explain;
