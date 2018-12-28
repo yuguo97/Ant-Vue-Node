@@ -30,7 +30,7 @@ app.all('*', function (req, res, next) {
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/v1/api',hero);
+app.use('/api',hero);
 app.listen(7551,() => {
-    console.log('http://localhost:7551/v1/api/hero')
+    console.log('http://localhost:7551/api/hero')
 });

@@ -17,14 +17,14 @@
         },
         methods:{
             getData(){
-                this.$ajax.get('/v2/api').then(res=>{
+                this.$ajax.get('/wsdl/Weather').then(res=>{
                     //   console.log(res.data.result)
                       var ddd = res.data.result;
                       var data=[];
                       for(var i=0;i<ddd.length;i++){
                           data.push([
                              ddd[i].name,
-                             ddd[i].number 
+                             ddd[i].number
                           ])
                       }
                     //   console.log(data)

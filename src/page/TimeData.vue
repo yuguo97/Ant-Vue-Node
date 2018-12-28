@@ -89,7 +89,7 @@
         },
         methods:{
             getData(){
-                this.$ajax.get('/v1/api/hero').then(res=>{
+                this.$ajax.get('/api/hero').then(res=>{
                     this.tableData=res.data;
                     this.pagination.total=res.data.length;
                 })
