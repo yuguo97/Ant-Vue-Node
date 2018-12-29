@@ -35,7 +35,7 @@
                 if (first && (first.name !== '首页' || first.path !== '')) {
                     matched = [{ name: '首页', path: '/' }].concat(matched)
                 }
-                console.log(matched);
+                // console.log(matched);
                 this.list = matched;
             }
         }

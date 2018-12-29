@@ -87,8 +87,14 @@ router.delete("/delHero/:id", (req, res) => {
     Hero.findOneAndRemove({
         _id: req.params.id
     })
-            .then(hero => res.send(`${hero.title}删除成功`))
-            .catch(err => res.json(err));
+    .then(hero => res.json({
+        status:"success",
+        message:"删除成功"
+      }))
+      .catch(err => res.json({
+        status:"fail",
+        message:"删除失败"
+      }));
 });
 
 module.exports = router;

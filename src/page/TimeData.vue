@@ -65,8 +65,8 @@
                             },{
                                 label: '删除',
                                 type: "danger",
-                                method: (index, row) => {
-                                    this.handleEdit(index,row)}
+                                method: (row) => {
+                                    this.handleDelete(row['_id'])}
                             },{
                                 label: '添加图片',
                                 type: "warning",
@@ -110,8 +110,31 @@
             handleEdit(index, row) {
                 console.log(index, row);
             },
-            handleDelete(index, row) {
-                console.log(index, row);
+            handleDelete(id) {
+                console.log(id);
+               
+                this.$confirm('确认删除吗?', '提示', {
+                    type: 'warning'
+                }).then(() => {
+                    this.$ajax.delete(`/api/Hero/delHero/${id}`).
+                    then(res=>{
+                        console.log(res)
+                    if (res.data.status == "success") {
+                        this.$message({
+                            message: "删除成功",
+                            type: "success",
+                        });
+                        } else {
+                        this.$message({
+                            message: "删除失败",
+                            type: "error"
+                        });
+                        }
+                    })
+                }).catch(() => {
+                    console.log("错误！")
+                });
+
             }
         }
     }
