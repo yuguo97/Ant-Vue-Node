@@ -1,5 +1,6 @@
 //定义简单路由
 const express = require('express');
+const app = express();
 const hero = require('./api/api');
 const mongoose = require("mongoose");
 
@@ -15,7 +16,7 @@ mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true });
 
 
 
-const app = express();
+
 app.all('*', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With');
