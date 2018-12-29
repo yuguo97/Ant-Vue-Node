@@ -17,7 +17,7 @@
         },
         methods:{
             getData(){
-                this.$ajax.get('/wsdl/Weather').then(res=>{
+                this.$ajax.get('/wsdl/Weather/getRegionProvince').then(res=>{
                     //   console.log(res.data.result)
                       var ddd = res.data.result;
                       var data=[];

@@ -7,7 +7,7 @@ const router = express.Router();
 const Hero = require("../models/hero");
 
 // 查询所有英雄信息路由
-router.get("/hero", (req, res) => {
+router.get("/", (req, res) => {
     Hero.find({})
             .sort({ update_at: -1 })
             .then(heros => {
@@ -20,7 +20,7 @@ router.get("/hero", (req, res) => {
 });
 
 // 通过ObjectId查询单个英雄信息路由
-router.get("/hero/:id", (req, res) => {
+router.get("/getHero/:id", (req, res) => {
     Hero.findById(req.params.id)
             .then(hero => {
                 res.json(hero);
@@ -31,7 +31,7 @@ router.get("/hero/:id", (req, res) => {
 });
 
 // 添加一个英雄信息路由
-router.post("/hero", (req, res) => {
+router.post("/addHero", (req, res) => {
     //使用Hero model上的create方法储存数据
     Hero.create(req.body, (err, hero) => {
         if (err) {
@@ -43,7 +43,7 @@ router.post("/hero", (req, res) => {
 });
 
 //更新一条英雄信息数据路由
-router.put("/hero/:id", (req, res) => {
+router.put("/putHero/:id", (req, res) => {
     Hero.findOneAndUpdate(
             { _id: req.params.id },
             {
@@ -83,7 +83,7 @@ router.put("/addpic/:id", (req, res) => {
 });
 
 //删除一条英雄信息路由
-router.delete("/hero/:id", (req, res) => {
+router.delete("/delHero/:id", (req, res) => {
     Hero.findOneAndRemove({
         _id: req.params.id
     })
