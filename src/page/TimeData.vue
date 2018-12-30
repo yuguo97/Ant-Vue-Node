@@ -112,7 +112,7 @@
             },
             handleDelete(id) {
                 console.log(id);
-               
+               const _this=this;
                 this.$confirm('确认删除吗?', '提示', {
                     type: 'warning'
                 }).then(() => {
@@ -123,11 +123,17 @@
                         this.$message({
                             message: "删除成功",
                             type: "success",
+                            onClose: function() {
+                               _this.getData()
+                            }
                         });
                         } else {
                         this.$message({
                             message: "删除失败",
-                            type: "error"
+                            type: "error",
+                            onClose: function() {
+                               _this.getData()
+                            }
                         });
                         }
                     })
