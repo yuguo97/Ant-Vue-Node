@@ -84,7 +84,7 @@ router.put("/addpic/:id", (req, res) => {
 
 //删除一条英雄信息路由
 router.delete("/delHero/:id", (req, res) => {
-    Hero.findOneAndRemove({
+  Hero.findOneAndDelete({
         _id: req.params.id
     })
     .then(hero => res.json({

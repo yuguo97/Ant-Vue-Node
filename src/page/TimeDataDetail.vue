@@ -2,7 +2,7 @@
     <div class="detail">
         <el-button type="success" icon="el-icon-arrow-left" @click="goBack" style="margin-bottom: 30px;">返回上一页</el-button>
         <el-carousel :interval="2000" type="card" height="300px">
-            <el-carousel-item v-for="item in imgArr" :key="item">
+            <el-carousel-item v-for="(item, key) in imgArr" :key="key">
                 <img :src="item" alt="" style="width: 100%;">
             </el-carousel-item>
         </el-carousel>
@@ -27,7 +27,7 @@
         methods:{
             getMessage(id){
                 this.$ajax.get(`/api/Hero/getHero/${id}`).then(res=>{
-                    console.log(res.data);
+                    // console.log(res.data);
                     this.imgArr=res.data.imgArr;
                     this.explain=res.data.explain;
                     this.name=res.data.name;

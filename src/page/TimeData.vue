@@ -5,6 +5,9 @@
         </div>
         <div class="content">
             <el-card class="box-card">
+                <div style="width:100%;height:50px;margin:10px 0">
+                  <el-button type="primary" @click="handleAdd()">添加数据</el-button>
+                </div>
                 <table-pagination
                         @handleSizeChange="handleSizeChange"
                         @handleCurrentChange="handleCurrentChange "
@@ -13,6 +16,101 @@
                         :pagination="pagination"
                 ></table-pagination>
             </el-card>
+
+
+            <el-dialog title="修改数据" :visible.sync="dialogModifyFormVisible" @close="closeModify('modifyForm')">
+              <el-form :model="modifyForm" class="addArea" :rules="rules" ref="modifyForm">
+                <el-form-item label="英雄:" :label-width="formLabelWidth" prop="name" style="width:50%;float:left">
+                  <el-input v-model="modifyForm.name" autocomplete="off" placeholder="请输入英雄名称"></el-input>
+                </el-form-item>
+
+                <el-form-item label="年龄:" :label-width="formLabelWidth"  prop="age" style="width:50%;float:left">
+                    <el-input v-model.number="modifyForm.age" auto-complete="off" placeholder="请输入英雄年龄"></el-input>
+                </el-form-item>
+
+                <el-form-item label="性别:" :label-width="formLabelWidth" prop="sex" style="width:50%;float:left">
+                  <el-select v-model="modifyForm.sex" placeholder="请选择英雄性别" class="sexArea">
+                    <el-option label="汉子" value="man"></el-option>
+                    <el-option label="妹子" value="woman"></el-option>
+                  </el-select>
+                </el-form-item>
+
+                <el-form-item label="籍贯:" :label-width="formLabelWidth" prop="address" style="width:50%;float:left">
+                  <el-input v-model="modifyForm.address" auto-complete="off" placeholder="请输入英雄籍贯"></el-input>
+                </el-form-item>
+
+                <el-form-item label="位置:" :label-width="formLabelWidth" prop="dowhat" style="width:50%;float:left">
+                  <el-input v-model="modifyForm.dowhat" auto-complete="off" placeholder="请输入英雄籍贯"></el-input>
+                </el-form-item>
+
+
+                <el-form-item label="台词:" :label-width="formLabelWidth" prop="favourite" style="width:50%;float:left">
+                    <el-input v-model="modifyForm.favourite" auto-complete="off" placeholder="请输入英雄台词"></el-input>
+                </el-form-item>
+
+                <el-form-item label="背景:" :label-width="formLabelWidth" prop="explain" style="width:100%;float:left">
+                  <el-input v-model="modifyForm.explain" auto-complete="off" type="textarea" :rows="6" resize="none" placeholder="请输入英雄背景"></el-input>
+                </el-form-item>
+              </el-form>
+              <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="modifySure()">确 定</el-button>
+              </div>
+            </el-dialog>
+
+            <el-dialog title="添加数据" :visible.sync="dialogAddFormVisible" @close="closeModify('addForm')">
+              <el-form :model="addForm" class="addArea" :rules="rules" ref="addForm">
+                <el-form-item label="英雄:" :label-width="formLabelWidth" prop="name" style="width:50%;float:left">
+                  <el-input v-model="addForm.name" autocomplete="off" placeholder="请输入英雄名称"></el-input>
+                </el-form-item>
+
+                <el-form-item label="年龄:" :label-width="formLabelWidth"  prop="age" style="width:50%;float:left">
+                    <el-input v-model.number="addForm.age" auto-complete="off" placeholder="请输入英雄年龄"></el-input>
+                </el-form-item>
+
+                <el-form-item label="性别:" :label-width="formLabelWidth" prop="sex" style="width:50%;float:left">
+                  <el-select v-model="addForm.sex" placeholder="请选择英雄性别" class="sexArea">
+                    <el-option label="汉子" value="man"></el-option>
+                    <el-option label="妹子" value="woman"></el-option>
+                  </el-select>
+                </el-form-item>
+
+                <el-form-item label="籍贯:" :label-width="formLabelWidth" prop="address" style="width:50%;float:left">
+                  <el-input v-model="addForm.address" auto-complete="off" placeholder="请输入英雄籍贯"></el-input>
+                </el-form-item>
+
+                <el-form-item label="位置:" :label-width="formLabelWidth" prop="dowhat" style="width:50%;float:left">
+                  <el-input v-model="addForm.dowhat" auto-complete="off" placeholder="请输入英雄籍贯"></el-input>
+                </el-form-item>
+
+
+                <el-form-item label="台词:" :label-width="formLabelWidth" prop="favourite" style="width:50%;float:left">
+                    <el-input v-model="addForm.favourite" auto-complete="off" placeholder="请输入英雄台词"></el-input>
+                </el-form-item>
+
+                <el-form-item label="背景:" :label-width="formLabelWidth" prop="explain" style="width:100%;float:left">
+                  <el-input v-model="addForm.explain" auto-complete="off" type="textarea" :rows="6" resize="none" placeholder="请输入英雄背景"></el-input>
+                </el-form-item>
+              </el-form>
+              <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogAddFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="addSure()">确 定</el-button>
+              </div>
+            </el-dialog>
+
+
+          <!-- 添加图片 -->
+          <el-dialog title="添加图片" :visible.sync="addpicVisible" class="addPicArea" @close="closePicAdd()">
+            <el-form :model="addpicform">
+              <el-form-item label="图片地址" :label-width="formLabelWidth">
+                <el-input v-model="addpicform.url" auto-complete="off"></el-input>
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="addpicVisible = false">取 消</el-button>
+              <el-button type="primary" @click="addpicSure()">确 定</el-button>
+            </div>
+          </el-dialog>
         </div>
     </div>
 </template>
@@ -54,33 +152,88 @@
                                 label: '详情',
                                 type: "primary",
                                 method: (row) => {
-                                    this.handleDetails(row['_id'])
+                                    this.handleDetails(row)
                                 }
                             },
                             {
                                 label: '修改',
                                 type: "success",
-                                method: (index, row) => {
-                                    this.handleEdit(index,row)}
+                                method: (row) => {
+                                    this.handleModify(row)
+                                    }
                             },{
                                 label: '删除',
                                 type: "danger",
                                 method: (row) => {
-                                    this.handleDelete(row['_id'])}
+                                    this.handleDelete(row)}
                             },{
                                 label: '添加图片',
                                 type: "warning",
-                                method: (index, row) => {
-                                    this.handleEdit(index,row)}
+                                method: (row) => {
+                                    this.handleAddPic(row)
+                                    }
                             }
                     ]},
                 ],
+                      // 校验规则
+                rules: {
+                  name: [
+                    { required: true, message: "请输入英雄名称", trigger: "blur" }
+                  ],
+                  age: [
+                    { required: true, message: "请输入英雄年龄", trigger: "blur" },
+                    { type: "number", message: "年龄必须为数字值" }
+                  ],
+                  sex: [
+                    { required: true, message: "请选择英雄性别", trigger: "change" },
+                    { required: true, message: "请选择英雄性别", trigger: "blur" }
+                  ],
+                  address: [
+                    { required: true, message: "请输入英雄籍贯", trigger: "blur" }
+                  ],
+                  dowhat: [
+                    { required: true, message: "请输入英雄位置", trigger: "blur" }
+                  ],
+                  favourite: [
+                    { required: true, message: "请输入英雄台词", trigger: "blur" }
+                  ],
+                  explain: [
+                    { required: true, message: "请输入英雄背景", trigger: "blur" }
+                  ]
+                },
                 tableData: [],
                 pagination: {
                     total:0,
                     currentPage: 1,
                     pageSize: 2,
                     pageSizes:[2, 4, 6]
+                },
+                dialogModifyFormVisible: false,
+                dialogAddFormVisible:false,
+                addpicVisible:false,
+                modifyForm: {
+                    name: '',
+                    age: '',
+                    sex: '',
+                    address: '',
+                    dowhat: '',
+                    favourite: '',
+                    explain: ''
+                },
+                addForm: {
+                    name: '',
+                    age: '',
+                    sex: '',
+                    address: '',
+                    dowhat: '',
+                    favourite: '',
+                    explain: ''
+                },
+                formLabelWidth: '80px',
+                modifyId:'',
+                addpicId: "",
+                addpicform: {
+                  url: ""
                 },
             }
         },
@@ -95,30 +248,104 @@
                 })
             },
             //详情
-            handleDetails(id) {
+            handleDetails(row) {
+                var id = row['_id'];
                 this.$router.push(`/TimeData/${id}`);
             },
             handleSizeChange (size) {
                 this.pagination.pageSize=size;
-                console.log(' this.limit:', size)
+                // console.log(' this.limit:', size)
             },
             // 切换页码
             handleCurrentChange (index) {
                 this.pagination.currentPage=index;
-                console.log(' this.page:', index)
+                // console.log(' this.page:', index)
             },
-            handleEdit(index, row) {
-                console.log(index, row);
+                // 关闭dialog的函数
+            closeModify: function(formName) {
+              this.$refs[formName].resetFields();
             },
-            handleDelete(id) {
-                console.log(id);
+            handleModify(row) {
+                this.dialogModifyFormVisible=true;
+                this.modifyForm = Object.assign({}, row);
+                this.modifyId = row['_id'];
+            },
+            handleAdd(){
+                this.dialogAddFormVisible=true;
+            },
+            addSure(){
+                const _this=this;
+                this.$confirm('确认添加吗?', '提示', {
+                    type: 'warning'
+                }).then(() => {
+                    this.$ajax.post(`/api/Hero/addHero`,this.addForm).
+                    then(res=>{
+                        if(res.status==200){
+                          this.dialogAddFormVisible=false;
+                          this.$message({
+                              message: "添加成功",
+                              type: "success",
+                              onClose: function() {
+                                _this.getData();
+                              }
+                          });
+                        }else{
+                          this.$message({
+                              message: "添加失败",
+                              type: "error",
+                              onClose: function() {
+                                _this.getData()
+                              }
+                          });
+                        }
+                    })
+                }).catch((err) => {
+                    console.log(err)
+                });
+            },
+
+
+            modifySure() {
                const _this=this;
-                this.$confirm('确认删除吗?', '提示', {
+                this.$confirm('确认修改吗?', '提示', {
+                    type: 'warning'
+                }).then(() => {
+                    this.$ajax.put(`/api/Hero/putHero/${this.modifyId}`,this.modifyForm).
+                    then(res=>{
+                        if(res.status==200){
+                          this.dialogModifyFormVisible=false;
+                          this.$message({
+                              message: "修改成功",
+                              type: "success",
+                              onClose: function() {
+                                _this.getData();
+                              }
+                          });
+                        }else{
+                          this.$message({
+                              message: "修改失败",
+                              type: "error",
+                              onClose: function() {
+                                _this.getData()
+                              }
+                          });
+                        }
+                    })
+                }).catch((err) => {
+                    console.log(err)
+                });
+              },
+            //删除
+            handleDelete(row) {
+                // console.log(id);
+                var id = row['_id'];
+               const _this=this;
+                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
                     type: 'warning'
                 }).then(() => {
                     this.$ajax.delete(`/api/Hero/delHero/${id}`).
                     then(res=>{
-                        console.log(res)
+                        // console.log(res)
                     if (res.data.status == "success") {
                         this.$message({
                             message: "删除成功",
@@ -137,9 +364,65 @@
                         });
                         }
                     })
-                }).catch(() => {
-                    console.log("错误！")
+                }).catch((err) => {
+                    console.log(err)
                 });
+
+            },
+                // 关闭图片新增
+            closePicAdd: function() {
+              this.addpicform.url = "";
+            },
+            handleAddPic(row){
+                this.addpicVisible=true;
+                this.addpicId = row['_id'];
+            },
+            addpicSure() {
+                const _this=this;
+                if (!this.addpicform.url.trim()) {
+                  this.$notify.error({
+                    title: "错误",
+                    message: "请输入正确的图片地址"
+                  });
+                  return;
+                }
+
+                var addObj = {
+                  url: this.addpicform.url
+                };
+                this.$confirm('确认添加吗?', '提示', {
+                    type: 'warning'
+                }).then(() => {
+                    this.$ajax.put(`/api/Hero/addpic/${this.addpicId}`,addObj).
+                    then(res=>{
+                        if(res.status==200){
+                          this.addpicVisible=false;
+                          this.$notify({
+                            title: "成功",
+                            message: "添加图片成功",
+                            type: "success",
+                            onClose: function() {
+                              _this.getData()
+                            }
+                          });
+                        }else{
+                            this.$notify({
+                              title: "失败",
+                              message: "添加图片失败",
+                              type: "error",
+                              onClose: function() {
+                                _this.getData()
+                              }
+                            });
+                        }
+                    })
+                }).catch((err) => {
+                    console.log(err)
+                });
+
+
+
+
 
             }
         }
@@ -147,11 +430,11 @@
 </script>
 
 <style scoped>
-    .tData{
-        width: 100%;
-        height: 100%;
-        overflow:hidden;
-    }
+.tData{
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+}
 
 
 </style>

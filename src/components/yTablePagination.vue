@@ -26,7 +26,7 @@
                         </template>
                     </template>
                 </el-table-column>
-                <el-table-column  v-else  :label="column.label" :prop="column.prop" align="center">
+                <el-table-column  v-else  :label="column.label" :prop="column.prop" align="center" :key="index">
                     <template slot-scope="scope">
                         <el-button v-for="(operate,index) in column.operations" size="small" :type="operate.type" :key="index" @click="operate.method(scope.row)"
                                    >{{operate.label}}</el-button>
