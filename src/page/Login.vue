@@ -83,22 +83,22 @@
         background-color: #242f42;
     }
     .login_content{
-          position: absolute;
+          /* position: absolute;
           top: 50%;
           left: 50%;
           height: 30%;
           width: 24%;
-          margin: -15% 0 0 -12%;
-        /* position: absolute;
+          margin: -15% 0 0 -12%; */
+        position: absolute;
         left: 50%;
         width: 450px;
-        height: 300px; */
+        height: 300px;
         -webkit-border-radius: 5px;
         border-radius: 5px;
         -moz-border-radius: 5px;
         background-clip: padding-box;
-        /* margin-left: -225px;
-        margin-top: 150px; */
+        margin-left: -225px;
+        margin-top: 150px;
         padding: 35px  25px;
         background: #fff;
         border: 1px solid #eaeaea;

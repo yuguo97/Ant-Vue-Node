@@ -43,7 +43,7 @@ router.post("/addHero", (req, res) => {
 });
 
 //更新一条英雄信息数据路由
-router.put("/putHero/:id", (req, res) => {
+router.post("/putHero/:id", (req, res) => {
     Hero.findOneAndUpdate(
             { _id: req.params.id },
             {

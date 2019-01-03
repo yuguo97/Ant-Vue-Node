@@ -182,7 +182,6 @@
                   ],
                   age: [
                     { required: true, message: "请输入英雄年龄", trigger: "blur" },
-                    { type: "number", message: "年龄必须为数字值" }
                   ],
                   sex: [
                     { required: true, message: "请选择英雄性别", trigger: "change" },
@@ -265,6 +264,9 @@
             closeModify: function(formName) {
               this.$refs[formName].resetFields();
             },
+            // closeAdd: function(formName) {
+            //   this.$refs[formName].resetFields();
+            // },
             handleModify(row) {
                 this.dialogModifyFormVisible=true;
                 this.modifyForm = Object.assign({}, row);
@@ -310,7 +312,7 @@
                 this.$confirm('确认修改吗?', '提示', {
                     type: 'warning'
                 }).then(() => {
-                    this.$ajax.put(`/api/Hero/putHero/${this.modifyId}`,this.modifyForm).
+                    this.$ajax.post(`/api/Hero/putHero/${this.modifyId}`,this.modifyForm).
                     then(res=>{
                         if(res.status==200){
                           this.dialogModifyFormVisible=false;
