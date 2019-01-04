@@ -53,19 +53,32 @@
                     if (valid) {
                         _this.logining = true;
                         var loginParams = {
-                            username: this.ruleForm.account,
-                            password: this.ruleForm.checkPass
+                            USERNAME: this.ruleForm.account,
+                            PASSWORD: this.ruleForm.checkPass
                         };
-                        if (loginParams.username === "admin" && loginParams.password === "123456") {
-                            _this.logining = false;
-                            sessionStorage.setItem('user', JSON.stringify(loginParams));
-                            _this.$router.push({ path: '/' });
-                        } else {
-                            _this.logining = false;
-                            _this.$alert('用户名或密码错误！', '提示信息', {
-                                confirmButtonText: '确定'
-                            });
-                        }
+                        this.$ajax.post('http://localhost:5551/api/LoginUser/Login',loginParams).then(res=>{
+                                // console.log(res)
+                                if(res.data.isLogin){
+                                    _this.logining = false;
+                                    sessionStorage.setItem('user', JSON.stringify(loginParams));
+                                    _this.$router.push({ path: '/' });
+                                }else{
+                                    _this.logining = false;
+                                    _this.$alert('用户名或密码错误！', '提示信息', {
+                                        confirmButtonText: '确定'
+                                    });
+                                }
+                        })
+                        // if (loginParams.username === "admin" && loginParams.password === "123456") {
+                        //     _this.logining = false;
+                        //     sessionStorage.setItem('user', JSON.stringify(loginParams));
+                        //     _this.$router.push({ path: '/' });
+                        // } else {
+                        //     _this.logining = false;
+                        //     _this.$alert('用户名或密码错误！', '提示信息', {
+                        //         confirmButtonText: '确定'
+                        //     });
+                        // }
                     } else {
                         console.log('error submit!!');
                         return false;
