@@ -6,7 +6,7 @@
                 <span class="el-dropdown-link">{{userName}}</span>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item command="我的消息" >我的消息</el-dropdown-item>
-                    <el-dropdown-item command="设置">设置</el-dropdown-item>
+                    <el-dropdown-item command="个人中心">个人中心</el-dropdown-item>
                     <el-dropdown-item command="退出登陆" divided >退出登陆</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
@@ -14,7 +14,6 @@
     </div>
 </template>
 <script>
-    // import Bus from '../assets/js/bus'
     export default {
         data() {
             return {
@@ -26,7 +25,7 @@
             handleCommand(command) {
                 if(command==="我的消息"){
                     this.myFun();
-                }else if(command==="设置"){
+                }else if(command==="个人中心"){
                     this.settingFun();
                 }else if(command==="退出登陆"){
                     this.logoutFun()

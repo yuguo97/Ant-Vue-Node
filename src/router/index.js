@@ -27,7 +27,7 @@ export default new Router({
             component:HomeIndex,
             name: '首页',
             hidden: true
-            },{
+        },{
             path: '/HistoricalData',
             component: HistoricalData,
             name: '历史数据'
@@ -77,7 +77,7 @@ export default new Router({
         },{
             path: '/Setting',
             component:Setting,
-            name: 'Setting',
+            name: '个人中心',
             hidden: true
         }]
       },

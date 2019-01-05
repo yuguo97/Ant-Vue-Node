@@ -1,12 +1,30 @@
 <template>
     <div class="ySideBar">
-        <el-menu router :default-active="$route.path" class="el-menu-vertical-demo" unique-opened   style="height: 100%;" >
-            <template v-for="item in $router.options.routes" v-if="!item.hidden">
-                <el-submenu :index="item.name"  v-if="!item.leaf"  :key="item.name">
-                    <template slot="title"><i :class="item.iconCls"></i>{{item.name}}</template>
-                    <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden">{{child.name}}</el-menu-item>
+        <el-menu 
+        router 
+        :default-active="$route.path" 
+        class="el-menu-vertical-demo" 
+        unique-opened   
+        style="height: 100%;"       
+        @open="handleOpen"
+        @close="handleClose">
+            <template v-for="item in $router.options.routes">
+                <el-submenu 
+                v-if="!item.hidden" 
+                :index="item.name" 
+                :key="item.name">
+                    <template slot="title">
+                        <i :class="item.iconCls"></i>
+                        <span>{{item.name}}</span>
+                    </template>
+                    <template v-for="child in item.children">
+                        <el-menu-item  v-if="!child.hidden"  :index="child.path" :key="child.path">
+                            <span>
+                                {{child.name}}
+                            </span>                
+                        </el-menu-item>
+                    </template>
                 </el-submenu>
-                <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path" :key="item.children[0].path"><i :class="item.iconCls"></i>{{item.children[0].name}}</el-menu-item>
             </template>
         </el-menu>
     </div>
@@ -19,18 +37,15 @@
 
             }
         },
-        // mounted(){
-        //
-        //     Bus.$on('activeIndex',function(defaultActive) {
-        //         this.defaultActive = defaultActive
-        //     })
-        // },
         methods: {
-
-        },
-        watch: {
-
+            handleOpen(key, keyPath) {
+                console.log(key);
+            },
+            handleClose(key, keyPath) {
+                console.log(key);
+            }
         }
+        
 
     }
 </script>
