@@ -36,12 +36,13 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="onSubmit('formInline')" ><font-awesome-icon icon="search" pull="left"/>查询</el-button>
-                            <el-button type="warning" @click="onSubmit('formInline')" ><font-awesome-icon icon="print" pull="left"/>打印</el-button>
-                            <el-button type="danger" @click="onSubmit('formInline')"><font-awesome-icon icon="file-export" pull="left"/>导出</el-button>
+                            <!-- <el-button type="warning" @click="onSubmit('formInline')" ><font-awesome-icon icon="print" pull="left"/>打印</el-button> -->
+                            <el-button type="danger" @click="onExport()"><font-awesome-icon icon="file-export" pull="left"/>导出</el-button>
                         </el-form-item>
                     </el-form>
                 </div>
                 <table-pagination
+                        id="AlarmDataTable"
                         @handleSizeChange="handleSizeChange"
                         @handleCurrentChange="handleCurrentChange "
                         :data="data"
@@ -56,6 +57,8 @@
 <script>
     import TablePagination from "@/components/yTablePagination"
     import BreadCrumb from "@/components/yBreadCrumb"
+    import FileSaver from 'file-saver'
+    import XLSX from 'xlsx'
     export default {
         name:"AlarmData",
         components:{
@@ -123,6 +126,15 @@
                         return false;
                     }
                 });
+            },
+            onExport(){
+                var wb = XLSX.utils.table_to_book(document.querySelector('#AlarmDataTable'))
+                /* get binary string as output */
+                var wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'array' })
+                try {
+                    FileSaver.saveAs(new Blob([wbout], { type: 'application/octet-stream' }), 'AlarmDataTable.xlsx')
+                } catch (e) { if (typeof console !== 'undefined') console.log(e, wbout) }
+                return wbout
             },
             getData(){
                 this.$ajax .get('/api').then(res=>{

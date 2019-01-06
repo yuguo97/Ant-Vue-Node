@@ -6,9 +6,12 @@
         <div class="content">
             <el-card class="box-card">
                 <div style="width:100%;height:50px;margin:10px 0">
-                  <el-button type="primary" @click="handleAdd()">添加数据</el-button>
+                    <el-button type="primary" @click="handleAdd()">添加数据</el-button>
+                    <!-- <el-button type="warning" @click="handlePrint()">打印数据</el-button> -->
+                    <el-button type="danger" @click="handleExport()">导出数据</el-button>
                 </div>
                 <table-pagination
+                        id="TimeDataTable"
                         @handleSizeChange="handleSizeChange"
                         @handleCurrentChange="handleCurrentChange "
                         :data="tableData"
@@ -118,6 +121,8 @@
 <script>
     import TablePagination from "@/components/yTablePagination"
     import BreadCrumb from "@/components/yBreadCrumb"
+    import FileSaver from 'file-saver'
+    import XLSX from 'xlsx'
     export default {
         name:"TimeData",
         components:{
@@ -264,9 +269,7 @@
             closeModify: function(formName) {
               this.$refs[formName].resetFields();
             },
-            // closeAdd: function(formName) {
-            //   this.$refs[formName].resetFields();
-            // },
+
             handleModify(row) {
                 this.dialogModifyFormVisible=true;
                 this.modifyForm = Object.assign({}, row);
@@ -274,6 +277,19 @@
             },
             handleAdd(){
                 this.dialogAddFormVisible=true;
+            },
+            // handlePrint(){
+            //     // this.dialogAddFormVisible=true;
+            // },
+            handleExport(){
+                // this.dialogAddFormVisible=true;
+                var wb = XLSX.utils.table_to_book(document.querySelector('#TimeDataTable'))
+                /* get binary string as output */
+                var wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'array' })
+                try {
+                    FileSaver.saveAs(new Blob([wbout], { type: 'application/octet-stream' }), 'TimeDataTable.xlsx')
+                } catch (e) { if (typeof console !== 'undefined') console.log(e, wbout) }
+                return wbout
             },
             addSure(){
                 const _this=this;
