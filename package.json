@@ -9,7 +9,7 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "server": "node server/app.js",
-    "pm": "pm2 start server/app.js --watch"
+    "pm": "pm2 start server/app.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
