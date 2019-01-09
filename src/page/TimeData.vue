@@ -1,13 +1,7 @@
 <template>
     <div class="tData">
         <div class="header">
-          <div class="yBreadCrumb">
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-              <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>系统数据</el-breadcrumb-item>
-              <el-breadcrumb-item>实时数据</el-breadcrumb-item>
-            </el-breadcrumb>
-          </div>
+            <BreadCrumb />
         </div>
         <div class="content">
             <el-card class="box-card">
@@ -48,8 +42,8 @@
                   <el-input v-model="modifyForm.address" auto-complete="off" placeholder="请输入英雄籍贯"></el-input>
                 </el-form-item>
 
-                <el-form-item label="位置:" :label-width="formLabelWidth" prop="dowhat" style="width:50%;float:left">
-                  <el-input v-model="modifyForm.dowhat" auto-complete="off" placeholder="请输入英雄籍贯"></el-input>
+                <el-form-item label="职业:" :label-width="formLabelWidth" prop="dowhat" style="width:50%;float:left">
+                  <el-input v-model="modifyForm.dowhat" auto-complete="off" placeholder="请输入英雄职业"></el-input>
                 </el-form-item>
 
 
@@ -88,8 +82,8 @@
                   <el-input v-model="addForm.address" auto-complete="off" placeholder="请输入英雄籍贯"></el-input>
                 </el-form-item>
 
-                <el-form-item label="位置:" :label-width="formLabelWidth" prop="dowhat" style="width:50%;float:left">
-                  <el-input v-model="addForm.dowhat" auto-complete="off" placeholder="请输入英雄籍贯"></el-input>
+                <el-form-item label="职业:" :label-width="formLabelWidth" prop="dowhat" style="width:50%;float:left">
+                  <el-input v-model="addForm.dowhat" auto-complete="off" placeholder="请输入英雄职业"></el-input>
                 </el-form-item>
 
 
@@ -126,14 +120,14 @@
 
 <script>
     import TablePagination from "@/components/yTablePagination"
-
+    import BreadCrumb from "@/components/yBreadCrumb"
     import FileSaver from 'file-saver'
     import XLSX from 'xlsx'
     export default {
         name:"TimeData",
         components:{
             TablePagination,
-
+            BreadCrumb
         },
         data() {
             return {
@@ -152,7 +146,7 @@
                         }
                     },
                     { prop : 'address', label: '籍贯',width:'100px'},
-                    { prop : 'dowhat', label: '位置',width:'100px'},
+                    { prop : 'dowhat', label: '职业',width:'100px'},
                     { prop : 'favourite', label: '台词',width:'150px',
                         formatter: (row) => {
                             return `<span style="white-space: nowrap;color: #1e90ff;">${row.favourite}</span>`
@@ -202,7 +196,7 @@
                     { required: true, message: "请输入英雄籍贯", trigger: "blur" }
                   ],
                   dowhat: [
-                    { required: true, message: "请输入英雄位置", trigger: "blur" }
+                    { required: true, message: "请输入英雄职业", trigger: "blur" }
                   ],
                   favourite: [
                     { required: true, message: "请输入英雄台词", trigger: "blur" }

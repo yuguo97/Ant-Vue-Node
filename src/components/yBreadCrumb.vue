@@ -1,12 +1,8 @@
 <template>
     <div class="yBreadCrumb">
         <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item
-                    v-for='(item,index) of list'
-                    :key='index'
-                    :to='item.path'>
-                {{item.name}}
-            </el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item v-for="(item, index) in this.$route.meta" :key="index">{{item}}</el-breadcrumb-item>
         </el-breadcrumb>
     </div>
 </template>
@@ -21,7 +17,7 @@
         },
         watch: {
             $route() {
-                this.getBreadcrumb()
+                console.log(this.$route);
             }
         },
         created(){
@@ -30,8 +26,10 @@
         methods:{
             getBreadcrumb() {
                 let matched = this.$route.matched.filter(item => item.name!==null);
-                const first = matched[0];
-                // console.log(first);
+                const first = matched[1];
+                if (first && (first.name !== '首页' || first.path !== '')) {
+                    matched = [{ name: '首页', path: '/' }].concat(matched)
+                }
 
                 console.log(matched);
                 this.list = matched;

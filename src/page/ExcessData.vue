@@ -1,14 +1,7 @@
 <template>
     <div class="eData">
         <div class="header">
-          <div class="yBreadCrumb">
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-              <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>系统数据</el-breadcrumb-item>
-              <el-breadcrumb-item>数据详情</el-breadcrumb-item>
-              <el-breadcrumb-item>超标数据</el-breadcrumb-item>
-            </el-breadcrumb>
-          </div>
+            <BreadCrumb />
         </div>
         <div class="content">
             <el-card class="box-card">
@@ -32,10 +25,11 @@
     import yBar from "@/components/charts/yChartsBar"
     import yPie from "@/components/charts/yChartsPie"
     import yLine from "@/components/charts/yChartsLine"
-
+    import BreadCrumb from "@/components/yBreadCrumb"
     export default {
         name:"ExcessData",
         components:{
+            BreadCrumb,
             yBar,
             yPie,
             yLine

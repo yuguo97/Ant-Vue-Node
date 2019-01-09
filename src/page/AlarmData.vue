@@ -1,14 +1,7 @@
 <template>
     <div class="aData">
         <div class="header">
-          <div class="yBreadCrumb">
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-              <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>系统数据</el-breadcrumb-item>
-              <el-breadcrumb-item>数据详情</el-breadcrumb-item>
-              <el-breadcrumb-item>报警数据</el-breadcrumb-item>
-            </el-breadcrumb>
-          </div>
+            <BreadCrumb />
         </div>
         <div class="content">
             <el-card class="box-card">
@@ -63,14 +56,15 @@
 
 <script>
     import TablePagination from "@/components/yTablePagination"
-
+    import BreadCrumb from "@/components/yBreadCrumb"
     import FileSaver from 'file-saver'
     import XLSX from 'xlsx'
+
     export default {
         name:"AlarmData",
         components:{
             TablePagination,
-
+            BreadCrumb
         },
         data(){
             return{

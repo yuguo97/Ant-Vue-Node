@@ -36,14 +36,14 @@
             return {
                 items: [
                     {
-                        icon: ['fab', 'android'],
+                        icon: ['fab', 'd-and-d'],
                         index: '/HomeIndex',
                         title: '系统首页'
                     },
                     {
-                        icon: ['fab', 'accusoft'],
+                        icon: ['fab', 'amazon'],
                         index: '/HomeData',
-                        title: '系统数据',
+                        title: '数据管理',
                         subs: [
                             {
                                 index: '/TimeData',
@@ -75,7 +75,7 @@
                     },
                     {
                         icon: ['fab', 'alipay'],
-                        index: '6',
+                        index: 'SystemSettings',
                         title: '系统设置',
                         subs: [
                             {
@@ -89,14 +89,7 @@
                             {
                                 index: '/Store',
                                 title: 'Store页面',
-                            }
-                        ]
-                    },
-                    {
-                        icon: ['fab', 'apple'],
-                        index: '/ErrorHandling',
-                        title: '错误处理',
-                        subs: [
+                            },
                             {
                                 index: '/404',
                                 title: '404页面'

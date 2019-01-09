@@ -1,13 +1,7 @@
 <template>
     <div>
         <div class="header">
-          <div class="yBreadCrumb">
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-              <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>系统设置</el-breadcrumb-item>
-              <el-breadcrumb-item>Store页面</el-breadcrumb-item>
-            </el-breadcrumb>
-          </div>
+            <BreadCrumb />
         </div>
         <div class="content">
             <h1>{{$store.state.count}}</h1>
@@ -21,10 +15,12 @@
     </div>
 </template>
 <script>
-
+    import BreadCrumb from "@/components/yBreadCrumb"
     export default{
         name:"Store",
-
+        components:{
+          BreadCrumb
+        },
         data(){
             return{
                 msg:'Hello Vuex',

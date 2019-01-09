@@ -1,13 +1,7 @@
 <template>
     <div class="aDialog">
         <div class="header">
-          <div class="yBreadCrumb">
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-              <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>系统设置</el-breadcrumb-item>
-              <el-breadcrumb-item>Dialog页面</el-breadcrumb-item>
-            </el-breadcrumb>
-          </div>
+            <BreadCrumb />
         </div>
         <div class="content">
             <el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
@@ -44,10 +38,12 @@
 </template>
 
 <script>
-
+    import BreadCrumb from "@/components/yBreadCrumb"
     export default {
         name: "Dialog",
-
+        components:{
+          BreadCrumb
+        },
         data() {
             return {
                 gridData: [{

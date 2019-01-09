@@ -1,13 +1,7 @@
 <template>
     <div class="hData">
         <div class="header">
-          <div class="yBreadCrumb">
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-              <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-              <el-breadcrumb-item>系统数据</el-breadcrumb-item>
-              <el-breadcrumb-item>历史数据</el-breadcrumb-item>
-            </el-breadcrumb>
-          </div>
+            <BreadCrumb />
         </div>
         <div class="content">
             <el-card class="box-card">
@@ -25,12 +19,12 @@
 
 <script>
     import TablePagination from "@/components/yTablePagination"
-
+    import BreadCrumb from "@/components/yBreadCrumb"
     export default {
         name:"HistoricalData",
         components:{
           TablePagination,
-
+          BreadCrumb
         },
         data() {
             return {

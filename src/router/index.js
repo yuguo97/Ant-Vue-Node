@@ -10,63 +10,63 @@ export default new Router({
     {
       path: "/",
       component: resolve => require(["@/page/Home.vue"], resolve),
-      meta: { title: "首页" },
+      meta: ["首页"],
       redirect: "/HomeIndex",
       children: [
         {
           path: "/HomeIndex",
           component: resolve => require(["@/page/HomeIndex.vue"], resolve),
-          meta: { title: "系统首页" }
+          meta: ["系统首页"]
         },
         {
           path: "/HistoricalData",
           component: resolve => require(["@/page/HistoricalData"], resolve),
-          meta: { title: "历史数据" }
+          meta: ["数据管理", "历史数据"]
         },
         {
           path: "/TimeData",
           component: resolve => require(["@/page/TimeData"], resolve),
-          meta: { title: "实时数据" }
+          meta: ["数据管理", "实时数据"]
         },
         {
           path: "/TimeData/:id",
           component: resolve => require(["@/page/TimeDataDetail"], resolve),
-          meta: { title: "实时数据详情" }
+          hidden: false
         },
         {
           path: "/AlarmData",
           component: resolve => require(["@/page/AlarmData"], resolve),
-          meta: { title: "报警数据" }
+          meta: ["数据管理", "数据详情", "报警数据"]
         },
         {
           path: "/ExcessData",
           component: resolve => require(["@/page/ExcessData"], resolve),
-          meta: { title: "超标数据" }
+          meta: ["数据管理", "数据详情", "超标数据"]
         },
         {
           path: "/News",
           component: resolve => require(["@/page/News"], resolve),
-          meta: { title: "新闻数据" }
+          meta: ["数据管理", "数据详情", "新闻数据"]
         },
         {
           path: "/Store",
           component: resolve => require(["@/page/Store"], resolve),
-          meta: { title: "Store" }
+          meta: ["系统设置", "Store页面"]
         },
         {
           path: "/Setting",
           component: resolve => require(["@/page/Setting"], resolve),
-          meta: { title: "Setting" }
+          meta: ["系统设置", "Setting页面"]
         },
         {
           path: "/Dialog",
           component: resolve => require(["@/page/Dialog"], resolve),
-          meta: { title: "Dialog" }
+          meta: ["系统设置", "Dialog页面"]
         },
         {
           path: "/404",
           component: resolve => require(["@/page/Error"], resolve),
-          meta: { title: "404" }
+          meta: ["系统设置", "404页面"]
         }
       ]
     },
