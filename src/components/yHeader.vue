@@ -5,9 +5,13 @@
             <el-dropdown placement="bottom" @command="handleCommand">
                 <span class="el-dropdown-link">{{userName}}</span>
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item command="我的消息" >我的消息</el-dropdown-item>
-                    <el-dropdown-item command="个人中心">个人中心</el-dropdown-item>
-                    <el-dropdown-item command="退出登陆" divided >退出登陆</el-dropdown-item>
+                    <el-dropdown-item command="关于作者">
+                        <a href="http://yuguo1991.com/about/" target="_blank">关于作者</a>
+                    </el-dropdown-item>
+                    <el-dropdown-item command="项目仓库">
+                        <a href="https://github.com/kuiguo1991/ygVueTraining" target="_blank">项目仓库</a>
+                    </el-dropdown-item>
+                    <el-dropdown-item command="loginout" divided >退出登陆</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -23,31 +27,16 @@
         },
         methods: {
             handleCommand(command) {
-                if(command==="我的消息"){
-                    this.myFun();
-                }else if(command==="个人中心"){
-                    this.settingFun();
-                }else if(command==="退出登陆"){
+                if(command==="loginout"){
                     this.logoutFun()
-                }else{
-                    console.log("未知错误！")
                 }
             },
-            //我的消息
-            myFun(){
-                this.$router.push('/HomeIndex');
-                // Bus.$emit('activeIndex','/HomeIndex')
-            },
-            //设置
-            settingFun(){
-                this.$router.push('/Setting');
-                // Bus.$emit('activeIndex','/Setting')
-            },
+
             //退出登录
             logoutFun() {
                 var _this = this;
                 this.$confirm('确认退出吗?', '提示', {
-                    //type: 'warning'
+                    type: 'warning'
                 }).then(() => {
                     sessionStorage.removeItem('user');
                     _this.$router.push('/Login');

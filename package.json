@@ -21,7 +21,7 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "echarts": "^4.1.0",
-    "element-ui": "^2.4.6",
+    "element-ui": "^2.4.11",
     "express": "^4.16.3",
     "file-saver": "^2.0.0",
     "highcharts": "^6.1.4",

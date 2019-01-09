@@ -3,7 +3,6 @@
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item
                     v-for='(item,index) of list'
-                    v-if='item.name'
                     :key='index'
                     :to='item.path'>
                 {{item.name}}
@@ -32,10 +31,9 @@
             getBreadcrumb() {
                 let matched = this.$route.matched.filter(item => item.name!==null);
                 const first = matched[0];
-                if (first && (first.name !== '首页' || first.path !== '')) {
-                    matched = [{ name: '首页', path: '/' }].concat(matched)
-                }
-                // console.log(matched);
+                // console.log(first);
+
+                console.log(matched);
                 this.list = matched;
             }
         }
