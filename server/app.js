@@ -1,7 +1,7 @@
 //定义简单路由
 const express = require('express');
 const app = express();
-const hero = require('./api/api');
+const hero = require('./router/index');
 const mongoose = require("mongoose");
 
 const bodyParser = require("body-parser");
