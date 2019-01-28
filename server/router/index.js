@@ -4,97 +4,25 @@ const express = require("express");
 //定义路由级中间件
 const router = express.Router();
 //引入数据模型模块
-const Hero = require("../models/hero");
 
+
+const hero = require("./../controllers/hreo");
 // 查询所有英雄信息路由
-router.get("/", (req, res) => {
-    Hero.find({})
-            .sort({ update_at: -1 })
-            .then(heros => {
-                res.json(heros);
-            })
-            .catch(err => {
-                console.log(2);
-                res.json(err);
-            });
-});
+router.get("/Heros", hero.Heros);
 
 // 通过ObjectId查询单个英雄信息路由
-router.get("/getHero/:id", (req, res) => {
-    Hero.findById(req.params.id)
-            .then(hero => {
-                res.json(hero);
-            })
-            .catch(err => {
-                res.json(err);
-            });
-});
+router.get("/getHero/:id", hero.getHero);
 
 // 添加一个英雄信息路由
-router.post("/addHero", (req, res) => {
-    //使用Hero model上的create方法储存数据
-    Hero.create(req.body, (err, hero) => {
-        if (err) {
-            res.json(err);
-        } else {
-            res.json(hero);
-        }
-    });
-});
+router.post("/addHero", hero.addHero);
 
 //更新一条英雄信息数据路由
-router.post("/putHero/:id", (req, res) => {
-    Hero.findOneAndUpdate(
-            { _id: req.params.id },
-            {
-                $set: {
-                    name: req.body.name,
-                    age: req.body.age,
-                    sex: req.body.sex,
-                    address: req.body.address,
-                    dowhat: req.body.dowhat,
-                    favourite: req.body.favourite,
-                    explain: req.body.explain
-                }
-            },
-            {
-                new: true
-            }
-    )
-            .then(hero => res.json(hero))
-            .catch(err => res.json(err));
-});
+router.put("/putHero/:id",hero.putHero);
 
 // 添加图片路由
-router.put("/addpic/:id", (req, res) => {
-    Hero.findOneAndUpdate(
-            { _id: req.params.id },
-            {
-                $push: {
-                    imgArr: req.body.url
-                }
-            },
-            {
-                new: true
-            }
-    )
-            .then(hero => res.json(hero))
-            .catch(err => res.json(err));
-});
+router.post("/addpic/:id", hero.addPic);
 
 //删除一条英雄信息路由
-router.delete("/delHero/:id", (req, res) => {
-  Hero.findOneAndDelete({
-        _id: req.params.id
-    })
-    .then(hero => res.json({
-        status:"success",
-        message:"删除成功"
-      }))
-      .catch(err => res.json({
-        status:"fail",
-        message:"删除失败"
-      }));
-});
+router.delete("/delHero/:id", hero.delHero);
 
 module.exports = router;

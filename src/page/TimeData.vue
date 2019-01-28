@@ -246,7 +246,7 @@
         },
         methods:{
             getData(){
-                this.$ajax.get('/api/Hero/').then(res=>{
+                this.$ajax.get('/api/Heros').then(res=>{
                     this.tableData=res.data;
                     this.pagination.total=res.data.length;
                 })
@@ -296,7 +296,7 @@
                 this.$confirm('确认添加吗?', '提示', {
                     type: 'warning'
                 }).then(() => {
-                    this.$ajax.post(`/api/Hero/addHero`,this.addForm).
+                    this.$ajax.post(`/api/addHero`,this.addForm).
                     then(res=>{
                         if(res.status==200){
                           this.dialogAddFormVisible=false;
@@ -328,7 +328,7 @@
                 this.$confirm('确认修改吗?', '提示', {
                     type: 'warning'
                 }).then(() => {
-                    this.$ajax.post(`/api/Hero/putHero/${this.modifyId}`,this.modifyForm).
+                    this.$ajax.put(`/api/putHero/${this.modifyId}`,this.modifyForm).
                     then(res=>{
                         if(res.status==200){
                           this.dialogModifyFormVisible=false;
@@ -361,7 +361,7 @@
                 this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
                     type: 'warning'
                 }).then(() => {
-                    this.$ajax.delete(`/api/Hero/delHero/${id}`).
+                    this.$ajax.delete(`/api/delHero/${id}`).
                     then(res=>{
                         // console.log(res)
                     if (res.data.status == "success") {
@@ -411,7 +411,7 @@
                 this.$confirm('确认添加吗?', '提示', {
                     type: 'warning'
                 }).then(() => {
-                    this.$ajax.put(`/api/Hero/addpic/${this.addpicId}`,addObj).
+                    this.$ajax.post(`/api/Hero/addpic/${this.addpicId}`,addObj).
                     then(res=>{
                         if(res.status==200){
                           this.addpicVisible=false;
