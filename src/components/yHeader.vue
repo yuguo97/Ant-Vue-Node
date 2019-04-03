@@ -9,7 +9,7 @@
                         <a href="http://yuguo1991.com/about/" target="_blank">关于作者</a>
                     </el-dropdown-item>
                     <el-dropdown-item command="项目仓库">
-                        <a href="https://github.com/kuiguo1991/ygVueTraining" target="_blank">项目仓库</a>
+                        <a href="https://github.com/kuiguo1991/element-ui-node" target="_blank">项目仓库</a>
                     </el-dropdown-item>
                     <el-dropdown-item command="loginout" divided >退出登陆</el-dropdown-item>
                 </el-dropdown-menu>
