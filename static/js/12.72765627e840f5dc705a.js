@@ -1,0 +1,2 @@
+webpackJsonp([12],{heID:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var s={name:"User",components:{BreadCrumb:r("a0ht").a}},a={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"User"},[t("div",{staticClass:"header"},[t("BreadCrumb")],1)])},staticRenderFns:[]},n=r("VU/8")(s,a,!1,null,null,null);t.default=n.exports}});
+//# sourceMappingURL=12.72765627e840f5dc705a.js.map
