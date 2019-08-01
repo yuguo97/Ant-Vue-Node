@@ -1,5 +1,5 @@
 <template>
-    <div class="hData">
+    <div class="Historical">
         <div class="header">
             <BreadCrumb />
         </div>
@@ -99,7 +99,7 @@
 </script>
 
 <style scoped>
-    .hData{
+    .Historical{
         width: 100%;
         height: 100%;
         overflow:hidden;

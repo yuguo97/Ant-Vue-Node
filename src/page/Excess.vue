@@ -1,5 +1,5 @@
 <template>
-    <div class="eData">
+    <div class="Excess">
         <div class="header">
             <BreadCrumb />
         </div>
@@ -49,7 +49,7 @@
     };
 </script>
 <style scoped>
-    .eData{
+    .Excess{
         width: 100%;
         height: 100%;
         overflow:hidden;

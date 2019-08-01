@@ -5,7 +5,7 @@
                 <template v-if="item.subs">
                     <el-submenu :index="item.index" :key="item.index">
                         <template slot="title">
-                            <font-awesome-icon :icon="item.icon" /><span slot="title">{{ item.title }}</span>
+                            <font-awesome-icon :icon="item.icon" /><span slot="title" class="iconItem">{{ item.title }}</span>
                         </template>
                         <template v-for="subItem in item.subs">
                             <el-submenu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
@@ -22,7 +22,7 @@
                 </template>
                 <template v-else>
                     <el-menu-item :index="item.index" :key="item.index">
-                        <font-awesome-icon :icon="item.icon" /><span slot="title">{{ item.title }}</span>
+                        <font-awesome-icon :icon="item.icon"/><span slot="title" class="iconItem">{{ item.title }}</span>
                     </el-menu-item>
                 </template>
             </template>
@@ -46,11 +46,11 @@
                         title: '数据管理',
                         subs: [
                             {
-                                index: '/TimeData',
+                                index: '/RealTime',
                                 title: '实时数据'
                             },
                             {
-                                index: '/HistoricalData',
+                                index: '/Historical',
                                 title: '历史数据'
                             },
                             {
@@ -58,11 +58,11 @@
                                 title: '数据详情',
                                 subs: [
                                     {
-                                        index: '/AlarmData',
+                                        index: '/Alarm',
                                         title: '报警数据'
                                     },
                                     {
-                                        index: '/ExcessData',
+                                        index: '/Excess',
                                         title: '超标数据'
                                     },
                                     {
@@ -76,23 +76,27 @@
                     {
                         icon: ['fab', 'alipay'],
                         index: 'SystemSettings',
-                        title: '系统设置',
+                        title: '系统管理',
                         subs: [
                             {
                                 index: '/Setting',
-                                title: 'Setting页面',
+                                title: '系统设置',
                             },
                             {
-                                index: '/Dialog',
-                                title: 'Dialog页面',
+                                index: '/Permission',
+                                title: '权限管理',
                             },
                             {
-                                index: '/Store',
-                                title: 'Store页面',
+                                index: '/Menu',
+                                title: '菜单管理',
                             },
                             {
-                                index: '/404',
-                                title: '404页面'
+                                index: '/User',
+                                title: '用户管理'
+                            },
+                            {
+                                index: '/Calendar',
+                                title: '日历设置'
                             }
                         ]
                     }
@@ -118,5 +122,8 @@
         left: 0;
         bottom: 0;
         width: 250px;
+    }
+    .iconItem{
+        padding-left: 10px;
     }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="Menu">
         <div class="header">
             <BreadCrumb />
         </div>

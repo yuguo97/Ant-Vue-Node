@@ -22,7 +22,6 @@
         methods:{
             getData(){
                 this.$ajax .get('/api').then(res=>{
-                    console.log(res.data.ChartsPie);
                     var ChartsPie=res.data.ChartsPie;
                     var data=[];
                     for (let i=0;i<ChartsPie.length;i++){

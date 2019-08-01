@@ -1,5 +1,5 @@
 <template>
-    <div class="detail">
+    <div class="RealTimeDetail">
         <el-button type="success" icon="el-icon-arrow-left" @click="goBack" style="margin-bottom: 30px;">返回上一页</el-button>
         <el-carousel :interval="2000" type="card" height="300px">
             <el-carousel-item v-for="(item, key) in imgArr" :key="key">
@@ -12,7 +12,7 @@
 </template>
 <script>
     export default {
-        name:"TimePickerDetail",
+        name:"RealTimeDetail",
         data(){
             return{
                 imgArr:[],
@@ -43,7 +43,7 @@
     }
 </script>
 <style scoped>
-    .detail{
+    .RealTimeDetail{
         width: 80%;
         margin: 50px auto;
     }

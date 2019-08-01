@@ -1,5 +1,5 @@
 <template>
-    <div class="tData">
+    <div class="RealTime">
         <div class="header">
             <BreadCrumb />
         </div>
@@ -124,7 +124,7 @@
     import FileSaver from 'file-saver'
     import XLSX from 'xlsx'
     export default {
-        name:"TimeData",
+        name:"RealTime",
         components:{
             TablePagination,
             BreadCrumb
@@ -254,7 +254,7 @@
             //详情
             handleDetails(row) {
                 var id = row['_id'];
-                this.$router.push(`/TimeData/${id}`);
+                this.$router.push(`/RealTime/${id}`);
             },
             handleSizeChange (size) {
                 this.pagination.pageSize=size;
@@ -448,11 +448,10 @@
 </script>
 
 <style scoped>
-.tData{
-    width: 100%;
-    height: 100%;
-    overflow:hidden;
-}
-
+    .RealTime{
+        width: 100%;
+        height: 100%;
+        overflow:hidden;
+    }
 
 </style>

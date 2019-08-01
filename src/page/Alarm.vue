@@ -1,5 +1,5 @@
 <template>
-    <div class="aData">
+    <div class="Alarm">
         <div class="header">
             <BreadCrumb />
         </div>
@@ -61,7 +61,7 @@
     import XLSX from 'xlsx'
 
     export default {
-        name:"AlarmData",
+        name:"Alarm",
         components:{
             TablePagination,
             BreadCrumb
@@ -157,7 +157,7 @@
 </script>
 
 <style scoped>
-    .aData{
+    .Alarm{
         width: 100%;
         height: 100%;
         overflow:hidden;

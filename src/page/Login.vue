@@ -93,7 +93,7 @@
         width: 100%;
         height: 100%;
         position: relative;
-        background-color: #5075b5;
+        /* background-color: #5075b5; */
     }
     .login_content{
         position: absolute;

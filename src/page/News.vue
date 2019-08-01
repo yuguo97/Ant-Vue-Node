@@ -1,5 +1,5 @@
 <template>
-    <div class="news">
+    <div class="News">
         <div class="header">
             <BreadCrumb />
         </div>
@@ -7,7 +7,10 @@
         <el-row>
             <el-col :span="6" v-for="(item,index) in data" :key="index" style="padding:10px">
                 <el-card :body-style="{ padding: '0px' }">
-                    <img :src="item.picInfo[0].url" class="image">
+                    <!-- <img :src="item.picInfo[0].url" class="image"> -->
+                    <el-image
+                    class="image"
+                    :src="item.picInfo[0].url"></el-image>
                     <div style="padding: 14px;height:100px">
                         <a :href="item.link" class="link"><span>{{item.title}}</span></a>
                         <div class="bottom clearfix">
@@ -23,14 +26,14 @@
 <script>
     import BreadCrumb from "@/components/yBreadCrumb"
     export default {
-        name:"NEWS",
+        name:"News",
         components:{
           BreadCrumb
         },
         data() {
             return {
                 currentDate: new Date(),
-                data:[]
+                data:[],
             };
         },
         created(){

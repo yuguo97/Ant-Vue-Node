@@ -5,7 +5,6 @@
             :data="data.slice((pagination.currentPage-1)*pagination.pageSize,pagination.currentPage*pagination.pageSize)"
             border
             stripe
-            max-height="500"
             style="width: 100%;"
         >
             <template v-for="(column, index) in columns" >
