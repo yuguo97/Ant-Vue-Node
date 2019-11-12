@@ -12,6 +12,6 @@
         name:"User",
         components:{
             BreadCrumb
-        },
+        }
     }
 </script>
