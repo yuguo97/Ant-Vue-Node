@@ -4,10 +4,9 @@
             <BreadCrumb />
         </div>
         <div class="content">
-        <el-row>
+        <!-- <el-row>
             <el-col :span="6" v-for="(item,index) in data" :key="index" style="padding:10px">
                 <el-card :body-style="{ padding: '0px' }">
-                    <!-- <img :src="item.picInfo[0].url" class="image"> -->
                     <el-image
                     class="image"
                     :src="item.picInfo[0].url"></el-image>
@@ -19,7 +18,7 @@
                     </div>
                 </el-card>
             </el-col>
-        </el-row>
+        </el-row> -->
         </div>
     </div>
 </template>
@@ -41,9 +40,10 @@
         },
         methods:{
             getData(){
-                this.$ajax.get('https://www.apiopen.top/journalismApi').then(res=>{
-                        this.data=res.data.data.war
-                })
+                // this.$ajax.get('https://api.apiopen.top/videoCategory').then(res=>{
+                //         console.log(res.data.result.itemList)
+                //         this.data=res.data.result.itemList;
+                // })
             },
         }
     }
