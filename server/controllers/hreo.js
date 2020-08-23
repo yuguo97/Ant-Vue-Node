@@ -9,7 +9,6 @@ const Heros = function (req, res) {
             res.json(heros);
         })
         .catch(err => {
-            console.log(2);
             res.json(err);
         });
 }

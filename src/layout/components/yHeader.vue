@@ -1,3 +1,12 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-08-23 23:14:42
+ * @LastEditTime: 2020-08-23 23:15:35
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \github\element-ui-node\src\layout\components\yHeader.vue
+-->
+
 <template>
     <div class="yHeader">
         <div class="h_logo">{{homeName}}</div>
