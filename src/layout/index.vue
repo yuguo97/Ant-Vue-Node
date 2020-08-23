@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-23 22:51:33
- * @LastEditTime: 2020-08-23 23:14:56
+ * @LastEditTime: 2020-08-23 23:57:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\index.vue
@@ -22,13 +22,11 @@
 <script>
     import Header from "./components/yHeader"
     import SideBar from "./components/ySideBar"
-    import HomeIndex from '@/page/Home/index.vue'
     export default {
         name:"Home",
         components:{
             Header,
-            SideBar,
-            HomeIndex
+            SideBar
         },
         methods: {
         }

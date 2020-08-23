@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-28 16:27:41
+ * @LastEditTime: 2020-08-23 23:34:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \github\element-ui-node\src\App.vue
+-->
 <template>
   <div id="app">
       <router-view></router-view>

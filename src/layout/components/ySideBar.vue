@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-23 23:14:42
- * @LastEditTime: 2020-08-23 23:20:04
+ * @LastEditTime: 2020-08-24 01:30:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\components\ySideBar.vue
@@ -9,48 +9,47 @@
 
 <template>
     <div class="ySideBar">
-        <el-menu class="el-menu-vertical-demo" :default-active="this.$route.path"  unique-opened router>
-            <template v-for="item in items">
-                <template v-if="item.subs">
-                    <el-submenu :index="item.index" :key="item.index">
-                        <template slot="title">
-                            <font-awesome-icon :icon="item.icon" /><span slot="title" class="iconItem">{{ item.title }}</span>
-                        </template>
-                        <template v-for="subItem in item.subs">
-                            <el-submenu v-if="subItem.subs" :index="subItem.index" :key="subItem.index">
-                                <template slot="title">{{ subItem.title }}</template>
-                                <el-menu-item v-for="(threeItem,i) in subItem.subs" :key="i" :index="threeItem.index">
-                                    {{ threeItem.title }}
-                                </el-menu-item>
-                            </el-submenu>
-                            <el-menu-item v-else :index="subItem.index" :key="subItem.index">
-                                {{ subItem.title }}
+        <el-menu
+         class="el-menu-vertical-demo"
+        :default-active="this.$route.path" 
+         unique-opened 
+         router>
+            <template v-for="item in routes">
+                <template v-if="item.hidden">
+                   <template v-if="item.name">
+                        <el-submenu :index="item.path" :key="item.path">
+                            <template slot="title">
+                                <i class="el-icon-location"></i>
+                                <span>{{item.meta.title}}</span>
+                            </template>
+                            <el-menu-item v-for="subItem in item.children" :key="subItem.path" :index="subItem.path">
+                                    {{ subItem.meta.title }}
                             </el-menu-item>
-                        </template>
-                    </el-submenu>
+                        </el-submenu>>
+                   </template>
+                   <template v-else>
+                        <el-menu-item :index="item.path" :key="item.path">
+                            <i class="el-icon-setting"></i>
+                            <span slot="title">{{ item.children[0].meta.title }}</span>
+                        </el-menu-item>
+                   </template>
+                    
                 </template>
-                <template v-else>
-                    <el-menu-item :index="item.index" :key="item.index">
-                        <font-awesome-icon :icon="item.icon"/><span slot="title" class="iconItem">{{ item.title }}</span>
-                    </el-menu-item>
-                </template>
+
             </template>
+        
         </el-menu>
+     
     </div>
 </template>
 <script>
-
+    import { initRouterMap }  from '@/router/index'
     export default {
         data() {
             return {
-                items: [
-                    {
-                        icon: ['fab', 'd-and-d'],
-                        index: '/HomeIndex',
-                        title: '系统首页'
-                    }
-                ]
             }
+        },
+        created() {
         },
         methods: {
             handleOpen(key, keyPath) {
@@ -59,8 +58,12 @@
             handleClose(key, keyPath) {
                 console.log(key);
             }
+        },
+        computed: {
+            routes() {
+                return initRouterMap
+            }
         }
-
 
     }
 </script>
