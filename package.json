@@ -26,7 +26,7 @@
     "express-graphql": "^0.7.1",
     "file-saver": "^2.0.0",
     "graphql": "^14.1.1",
-    "highcharts": "^6.1.4",
+    "highcharts": "^7.2.2",
     "js-cookie": "^2.2.1",
     "mongoose": "^5.2.14",
     "normalize.css": "^8.0.0",
