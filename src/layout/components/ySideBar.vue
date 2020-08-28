@@ -25,7 +25,7 @@
                             <el-menu-item v-for="subItem in item.children" :key="subItem.path" :index="subItem.path">
                                     {{ subItem.meta.title }}
                             </el-menu-item>
-                        </el-submenu>>
+                        </el-submenu>
                    </template>
                    <template v-else>
                         <el-menu-item :index="item.children[0].path" :key="item.children[0].path">
