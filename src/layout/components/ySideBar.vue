@@ -11,11 +11,11 @@
     <div class="ySideBar">
         <el-menu
          class="el-menu-vertical-demo"
-        :default-active="this.$route.path" 
-         unique-opened 
+        :default-active="this.$route.path"
+         unique-opened
          router>
             <template v-for="item in routes">
-                <template v-if="item.hidden">
+                <template v-if="!item.hidden">
                    <template v-if="item.name">
                         <el-submenu :index="item.path" :key="item.path">
                             <template slot="title">
@@ -28,18 +28,18 @@
                         </el-submenu>>
                    </template>
                    <template v-else>
-                        <el-menu-item :index="item.path" :key="item.path">
+                        <el-menu-item :index="item.children[0].path" :key="item.children[0].path">
                             <i class="el-icon-setting"></i>
                             <span slot="title">{{ item.children[0].meta.title }}</span>
                         </el-menu-item>
                    </template>
-                    
+
                 </template>
 
             </template>
-        
+
         </el-menu>
-     
+
     </div>
 </template>
 <script>

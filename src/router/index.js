@@ -20,10 +20,10 @@ export const initRouterMap = [
         path: "/",
         component: Layout,
         redirect: '/Home',
-        hidden: true,
+        hidden: false,
         children: [
             {
-              path: 'Home',
+              path: '/Home',
               component: () => import('@/page/Home/index'),
               name: 'Home',
               meta: { title: '系统首页', icon: 'home', affix: true }
@@ -31,13 +31,27 @@ export const initRouterMap = [
           ]
     },
     {
-        path: "/login",
+        path: "/",
+        component: Layout,
+        redirect: '/Documentation',
         hidden: false,
+        children: [
+            {
+              path: '/Documentation',
+              component: () => import('@/page/Documentation/index'),
+              name: 'Home',
+              meta: { title: '数据信息', icon: 'home', affix: true }
+            }
+          ]
+    },
+    {
+        path: "/login",
+        hidden: true,
         component: resolve => require(["@/page/Login/index.vue"], resolve)
     },
     {
         path: "*",
-        hidden: false,
+        hidden: true,
         redirect: "/login"
     }
 ]
