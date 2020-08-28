@@ -31,7 +31,7 @@ export const initRouterMap = [
           ]
     },
     {
-        path: "/",
+        path: "/page",
         component: Layout,
         redirect: '/Documentation',
         hidden: false,
