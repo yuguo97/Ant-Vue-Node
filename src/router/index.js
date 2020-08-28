@@ -39,8 +39,28 @@ export const initRouterMap = [
             {
               path: '/Documentation',
               component: () => import('@/page/Documentation/index'),
-              name: 'Home',
+              name: 'Documentation',
               meta: { title: '数据信息', icon: 'home', affix: true }
+            }
+          ]
+    },
+    {
+        path: "/page",
+        component: Layout,
+        meta: { title: '系统管理', icon: 'home', affix: true },
+        hidden: false,
+        children: [
+            {
+              path: '/System/User',
+              component: () => import('@/page/System/User/index'),
+              name: 'User',
+              meta: { title: '用户管理', icon: 'home', affix: true }
+            },
+            {
+                path: '/System/Menu',
+                component: () => import('@/page/System/Menu/index'),
+                name: 'Menu',
+                meta: { title:'菜单管理', icon: 'home', affix: true }
             }
           ]
     },

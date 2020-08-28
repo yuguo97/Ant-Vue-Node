@@ -14,9 +14,9 @@
         :default-active="this.$route.path"
          unique-opened
          router>
-            <template v-for="item in routes">
+            <template v-for="item in routes" >
                 <template v-if="!item.hidden">
-                   <template v-if="item.name">
+                   <template v-if="!item.redirect">
                         <el-submenu :index="item.path" :key="item.path">
                             <template slot="title">
                                 <i class="el-icon-location"></i>

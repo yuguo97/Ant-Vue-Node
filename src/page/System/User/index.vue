@@ -1,6 +1,7 @@
+
 <template>
     <div class="hIndex">
-       正在开发中
+       正在开发中2
     </div>
 </template>
 <script>
