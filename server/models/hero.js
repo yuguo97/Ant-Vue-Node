@@ -8,7 +8,7 @@ const heroSchema = mongoose.Schema({
     sex : String,
     address : String,
     dowhat : String,
-    imgArr:[],
+    imgArr:[String],
     favourite:String,
     explain:String
 }, { collection: 'myHero'});
