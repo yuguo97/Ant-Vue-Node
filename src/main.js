@@ -11,7 +11,7 @@ Vue.use(ElementUI);
 
 //axios
 import axios from 'axios'
-import  store from './store/store'
+// import  store from './store/store'
 Vue.prototype.$ajax = axios;
 require('./mock');
 
@@ -56,7 +56,7 @@ router.beforeEach((to, from, next) => {
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
-    store,
+    // store,
     router,
     components: { App },
     template: '<App/>'
