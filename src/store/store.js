@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-
+import getters from './getters'
 Vue.use(Vuex);
 
 const modulesFiles = require.context('./modules', true, /\.js$/)
