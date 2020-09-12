@@ -1,3 +1,4 @@
+
 //引入mockjs
 var Mock = require('mockjs');
 //使用mockjs模拟数据
