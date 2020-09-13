@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-13 10:07:18
+ * @LastEditTime: 2020-09-13 18:15:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\main.js
@@ -12,10 +12,7 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router";
 Vue.config.productionTip = false;
-//引入element-ui框架
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-Vue.use(ElementUI);
+
 //引入ant-design-vue框架
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';

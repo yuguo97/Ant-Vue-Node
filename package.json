@@ -22,7 +22,6 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "echarts": "^4.1.0",
-    "element-ui": "^2.11.0",
     "express": "^4.16.3",
     "express-graphql": "^0.7.1",
     "file-saver": "^2.0.0",
