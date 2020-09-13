@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-13 18:12:38
+ * @LastEditTime: 2020-09-13 23:06:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\page\Login\index.vue
@@ -77,7 +77,7 @@ export default {
              console.log(loginParams);
              if(loginParams.USERNAME === "admin" && loginParams.PASSWORD === "123456"){
                 sessionStorage.setItem("user", JSON.stringify(loginParams));
-                this.$router.push({ path: "/" });
+                this.$router.push({ path: "/bigScreen" });
              } else {
                 this.$message.error('账号或密码错误');
              }

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-28 16:27:41
- * @LastEditTime: 2020-09-13 11:58:38
+ * @LastEditTime: 2020-09-13 23:02:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\router\index.js
@@ -68,6 +68,11 @@ export const initRouterMap = [
         path: "/login",
         hidden: true,
         component: resolve => require(["@/page/Login/index.vue"], resolve)
+    },
+    {
+        path: "/bigScreen",
+        hidden: true,
+        component: resolve => require(["@/page/BigScreen/index.vue"], resolve)
     },
     {
         path: "*",

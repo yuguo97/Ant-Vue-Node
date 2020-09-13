@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-23 23:14:42
- * @LastEditTime: 2020-09-13 11:03:12
+ * @LastEditTime: 2020-09-13 23:21:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\components\yHeader.vue
@@ -21,6 +21,10 @@
                     </a-menu-item>
                     <a-menu-item>
                         <a target="_blank" href="https://github.com/kuiguo1991/element-ui-node">项目仓库</a>
+                    </a-menu-item>
+                    <a-menu-divider />
+                    <a-menu-item>
+                        <a href="javascript:;" @click="handleScreen">大屏展示</a>
                     </a-menu-item>
                     <a-menu-divider />
                     <a-menu-item>
@@ -45,19 +49,23 @@
             logoutFun() {
                 const _this = this
                 this.$confirm({
-                title: '是否确定退出登录?',
-                okText: '确定',
-                okType: 'danger',
-                cancelText: '取消',
-                onOk() {
-                    sessionStorage.removeItem('user');
-                     _this.$router.push('/Login');
-                },
-                onCancel() {
-                    console.log('Cancel');
-                },
-                });
-        }}
+                    title: '是否确定退出登录?',
+                    okText: '确定',
+                    okType: 'danger',
+                    cancelText: '取消',
+                    onOk() {
+                        sessionStorage.removeItem('user');
+                        _this.$router.push('/Login');
+                    },
+                    onCancel() {
+                        console.log('Cancel');
+                    },
+            });
+            },
+            handleScreen(){
+                this.$router.push('/bigScreen');
+            }
+        }
     }
 </script>
 <style scoped>

@@ -1,17 +1,14 @@
 <!--
- * @Author: 隗果
- * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-13 11:59:05
+ * @Author: your name
+ * @Date: 2020-08-28 11:40:20
+ * @LastEditTime: 2020-09-12 16:10:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: \github\element-ui-node\src\page\Home\index.vue
+ * @FilePath: \github\element-ui-node\src\page\System\Menu\index.vue
 -->
 
-
 <template>
-  <div class="hIndex">
-    <div id="container" style="width: 100%;height: 100%"></div>
-  </div>
+  <div class="hIndex">正在开发中1</div>
 </template>
 <script>
 export default {
@@ -21,15 +18,9 @@ export default {
       msg: "首页",
     };
   },
-  mounted() {
-    // this.getMap();
-  },
+  mounted() {},
   methods: {
-    getMap() {
-      var map = new BMap.Map("container");
-      var point = new BMap.Point(116.404, 39.915);
-      map.centerAndZoom(point, 15);
-    },
+    getMap() {},
   },
 };
 </script>
