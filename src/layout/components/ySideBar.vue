@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-12 15:50:26
+ * @LastEditTime: 2020-09-13 17:27:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\components\ySideBar.vue
@@ -10,40 +10,100 @@
 
 <template>
   <div class="ySideBar">
-    <el-menu class="el-menu-vertical-demo" :default-active="this.$route.path" unique-opened router>
-      <template v-for="item in routes">
-        <template v-if="!item.hidden">
-          <template v-if="!item.redirect">
-            <el-submenu :index="item.path" :key="item.path">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>{{item.meta.title}}</span>
-              </template>
-              <el-menu-item
-                v-for="subItem in item.children"
-                :key="subItem.path"
-                :index="subItem.path"
-              >{{ subItem.meta.title }}</el-menu-item>
-            </el-submenu>
-          </template>
-          <template v-else>
-            <el-menu-item :index="item.children[0].path" :key="item.children[0].path">
-              <i class="el-icon-setting"></i>
-              <span slot="title">{{ item.children[0].meta.title }}</span>
-            </el-menu-item>
-          </template>
+    <a-menu mode="inline"
+        :default-selected-keys="this.$route.path"  style="width: 256px" router>
+        <template v-for="item in routes">
+           <template v-if="!item.hidden">
+                <template v-if="!item.redirect">
+                    <a-sub-menu :index="item.path" :key="item.path">
+                        <template slot="title">
+                            <a-icon :type="item.meta.icon" />
+                            <span>{{item.meta.title}}</span>
+                        </template>
+                        <a-menu-item
+                            v-for="subItem in item.children"
+                            :key="subItem.path"
+                            :index="subItem.path"
+                        >
+                            <router-link :to="subItem.path">
+                                <a-icon :type="subItem.meta.icon" />
+                                <span>{{ subItem.meta.title }}</span>
+                            </router-link>
+
+                        </a-menu-item>
+                    </a-sub-menu>
+                </template>
+                <template v-else>
+                    <a-menu-item :index="item.children[0].path" :key="item.children[0].path">
+                        <router-link :to="item.children[0].path">
+                            <a-icon :type="item.children[0].meta.icon" />
+                            <span>{{ item.children[0].meta.title }}</span>
+                        </router-link>
+                    </a-menu-item>
+                </template>
+           </template>
         </template>
-      </template>
-    </el-menu>
+    </a-menu>
+    <!-- <a-menu mode="inline" :open-keys="openKeys" style="width: 256px" @openChange="onOpenChange">
+      <a-sub-menu key="sub1">
+        <span slot="title"><a-icon type="mail" /><span>Navigation One</span></span>
+        <a-menu-item key="1">
+          Option 1
+        </a-menu-item>
+        <a-menu-item key="2">
+          Option 2
+        </a-menu-item>
+        <a-menu-item key="3">
+          Option 3
+        </a-menu-item>
+        <a-menu-item key="4">
+          Option 4
+        </a-menu-item>
+      </a-sub-menu>
+      <a-sub-menu key="sub2">
+        <span slot="title"><a-icon type="appstore" /><span>Navigation Two</span></span>
+        <a-menu-item key="5">
+          Option 5
+        </a-menu-item>
+        <a-menu-item key="6">
+          Option 6
+        </a-menu-item>
+        <a-sub-menu key="sub3" title="Submenu">
+          <a-menu-item key="7">
+            Option 7
+          </a-menu-item>
+          <a-menu-item key="8">
+            Option 8
+          </a-menu-item>
+        </a-sub-menu>
+      </a-sub-menu>
+      <a-sub-menu key="sub4">
+        <span slot="title"><a-icon type="setting" /><span>Navigation Three</span></span>
+        <a-menu-item key="9">
+          Option 9
+        </a-menu-item>
+        <a-menu-item key="10">
+          Option 10
+        </a-menu-item>
+        <a-menu-item key="11">
+          Option 11
+        </a-menu-item>
+        <a-menu-item key="12">
+          Option 12
+        </a-menu-item>
+      </a-sub-menu>
+    </a-menu> -->
   </div>
 </template>
 <script>
 import { initRouterMap } from "@/router/index";
 export default {
   data() {
-    return {};
+    return {
+    };
   },
-  created() {},
+  created() {
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key);

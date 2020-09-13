@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-28 16:27:41
- * @LastEditTime: 2020-08-24 01:07:01
+ * @LastEditTime: 2020-09-13 11:58:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\router\index.js
@@ -40,14 +40,14 @@ export const initRouterMap = [
               path: '/Documentation',
               component: () => import('@/page/Documentation/index'),
               name: 'Documentation',
-              meta: { title: '数据信息', icon: 'home', affix: true }
+              meta: { title: '数据信息', icon: 'desktop', affix: true }
             }
           ]
     },
     {
         path: "/page",
         component: Layout,
-        meta: { title: '系统管理', icon: 'home', affix: true },
+        meta: { title: '系统管理', icon: 'setting', affix: true },
         hidden: false,
         children: [
             {

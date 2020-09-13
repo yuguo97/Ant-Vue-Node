@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-12 15:50:52
+ * @LastEditTime: 2020-09-13 18:12:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\page\Login\index.vue
@@ -12,110 +12,75 @@
 <template>
   <div class="login">
     <div class="login_content">
-      <el-form
-        :model="ruleForm"
-        :rules="rules"
-        ref="ruleForm"
-        label-position="left"
-        label-width="0px"
-        class="demo-ruleForm login-container"
-      >
         <h3 class="title">系统登录</h3>
-        <el-form-item prop="account">
-          <el-input type="text" v-model="ruleForm.account" auto-complete="off" placeholder="账号"></el-input>
-        </el-form-item>
-        <el-form-item prop="checkPass">
-          <el-input
-            type="password"
-            v-model="ruleForm.checkPass"
-            auto-complete="off"
-            placeholder="密码"
-          ></el-input>
-        </el-form-item>
-        <el-checkbox checked class="remember" style="margin: 0 0 25px 0">记住密码</el-checkbox>
-        <el-form-item style="width:100%;">
-          <el-button
-            type="primary"
-            style="width:100%;"
-            :loading="loading"
-            @click="handleSubmit"
-            @keyup.enter="handleSubmit"
-          >登录</el-button>
-        </el-form-item>
-      </el-form>
+        <a-form :form="form">
+            <a-form-item
+            :label-col="formItemLayout.labelCol"
+            :wrapper-col="formItemLayout.wrapperCol"
+            label="账号"
+            >
+            <a-input
+                v-decorator="[
+                'USERNAME',
+                { rules: [{ required: true, message: '请输入账号' }] },
+                ]"
+                placeholder="请输入账号"
+            />
+            </a-form-item>
+            <a-form-item
+            :label-col="formItemLayout.labelCol"
+            :wrapper-col="formItemLayout.wrapperCol"
+            label="密码"
+            >
+            <a-input
+                v-decorator="[
+                'PASSWORD',
+                { rules: [{ required: true, message: '请输入密码' }] },
+                ]"
+                type="password"
+                placeholder="请输入密码"
+            />
+            </a-form-item>
+            <a-form-item >
+            </a-form-item>
+            <a-form-item :label-col="formTailLayout.labelCol" :wrapper-col="formTailLayout.wrapperCol">
+                <a-button type="primary" @click="handleSubmit">
+                  登录
+                </a-button>
+            </a-form-item>
+        </a-form>
     </div>
   </div>
 </template>
 <script>
+const formItemLayout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 20 },
+};
+const formTailLayout = {
+  labelCol: { span: 16 },
+  wrapperCol: { span: 16, offset: 4 },
+};
 export default {
   name: "Login",
   data() {
     return {
-      loading: false,
-      ruleForm: {
-        account: "admin",
-        checkPass: "123456",
-      },
-      rules: {
-        account: [
-          {
-            required: true,
-            message: "请输入账号",
-            trigger: "blur",
-          },
-          //{ validator: validaePass }
-        ],
-        checkPass: [
-          {
-            required: true,
-            message: "请输入密码",
-            trigger: "blur",
-          },
-          //{ validator: validaePass2 }
-        ],
-      },
-      checked: true,
+      formItemLayout,
+      formTailLayout,
+      form: this.$form.createForm(this, { name: 'dynamic_rule' }),
     };
   },
   methods: {
-    handleSubmit(ev) {
-      var _this = this;
-      _this.$refs.ruleForm.validate((valid) => {
-        if (valid) {
-          _this.logining = true;
-          var loginParams = {
-            USERNAME: this.ruleForm.account,
-            PASSWORD: this.ruleForm.checkPass,
-          };
-          // this.$ajax.post('http://localhost:5551/api/LoginUser/Login',loginParams).then(res=>{
-          //         // console.log(res)
-          //         if(res.data.isLogin){
-          //             _this.logining = false;
-          //             sessionStorage.setItem('user', JSON.stringify(loginParams));
-          //             _this.$router.push({ path: '/' });
-          //         }else{
-          //             _this.logining = false;
-          //             _this.$alert('用户名或密码错误！', '提示信息', {
-          //                 confirmButtonText: '确定'
-          //             });
-          //         }
-          // })
-          if (
-            loginParams.USERNAME === "admin" &&
-            loginParams.PASSWORD === "123456"
-          ) {
-            _this.logining = false;
-            sessionStorage.setItem("user", JSON.stringify(loginParams));
-            _this.$router.push({ path: "/" });
-          } else {
-            _this.logining = false;
-            _this.$alert("用户名或密码错误！", "提示信息", {
-              confirmButtonText: "确定",
-            });
-          }
-        } else {
-          console.log("error submit!!");
-          return false;
+    handleSubmit() {
+      this.form.validateFields((err,loginParams) => {
+        if (!err) {
+             console.log(loginParams);
+             if(loginParams.USERNAME === "admin" && loginParams.PASSWORD === "123456"){
+                sessionStorage.setItem("user", JSON.stringify(loginParams));
+                this.$router.push({ path: "/" });
+             } else {
+                this.$message.error('账号或密码错误');
+             }
         }
       });
     },

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-23 23:14:42
- * @LastEditTime: 2020-09-13 10:30:12
+ * @LastEditTime: 2020-09-13 11:03:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\components\yHeader.vue
@@ -11,18 +11,6 @@
     <div class="yHeader">
         <div class="h_logo">{{homeName}}</div>
         <div class="h_admin">
-            <!-- <el-dropdown placement="bottom" @command="handleCommand">
-                <span class="el-dropdown-link">{{userName}}</span>
-                <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item command="关于作者">
-                        <a href="http://yuguo1991.com/about/" target="_blank">关于作者</a>
-                    </el-dropdown-item>
-                    <el-dropdown-item command="项目仓库">
-                        <a href="https://github.com/kuiguo1991/element-ui-node" target="_blank">项目仓库</a>
-                    </el-dropdown-item>
-                    <el-dropdown-item command="loginout" divided >退出登陆</el-dropdown-item>
-                </el-dropdown-menu>
-            </el-dropdown> -->
               <a-dropdown>
                 <a class="ant-dropdown-link" @click="e => e.preventDefault()" style="color:#fff">
                     {{userName}}<a-icon type="down" />
@@ -55,8 +43,20 @@
         methods: {
             //退出登录
             logoutFun() {
-                sessionStorage.removeItem('user');
-                this.$router.push('/Login');
+                const _this = this
+                this.$confirm({
+                title: '是否确定退出登录?',
+                okText: '确定',
+                okType: 'danger',
+                cancelText: '取消',
+                onOk() {
+                    sessionStorage.removeItem('user');
+                     _this.$router.push('/Login');
+                },
+                onCancel() {
+                    console.log('Cancel');
+                },
+                });
         }}
     }
 </script>
@@ -81,6 +81,8 @@
         height: 70px;
         float: left;
         text-align: right;
+        padding-top: 20px;
+        padding-right: 20px;
     }
     .el-dropdown{
         height: 30px;
