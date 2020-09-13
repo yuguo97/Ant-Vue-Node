@@ -1,11 +1,12 @@
 <!--
- * @Author: 隗果
- * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-13 23:23:47
+ * @Author: your name
+ * @Date: 2020-09-13 23:03:43
+ * @LastEditTime: 2020-09-13 23:30:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: \github\element-ui-node\src\page\Home\index.vue
+ * @FilePath: \github\element-ui-node\src\page\BigScreen\index.vue
 -->
+
 
 
 <template>
