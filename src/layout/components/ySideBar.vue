@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-13 17:27:04
+ * @LastEditTime: 2020-09-13 18:28:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\components\ySideBar.vue
@@ -11,7 +11,7 @@
 <template>
   <div class="ySideBar">
     <a-menu mode="inline"
-        :default-selected-keys="this.$route.path"  style="width: 256px" router>
+        :default-selected-keys="this.default"  style="width: 250px;height: 100%;" router>
         <template v-for="item in routes">
            <template v-if="!item.hidden">
                 <template v-if="!item.redirect">
@@ -100,6 +100,7 @@ import { initRouterMap } from "@/router/index";
 export default {
   data() {
     return {
+        default: [this.$route.path]
     };
   },
   created() {
