@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-12 18:12:33
+ * @LastEditTime: 2020-09-13 10:07:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\main.js
@@ -17,9 +17,10 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 //引入ant-design-vue框架
-import Antd from "ant-design-vue";
-import "ant-design-vue/dist/antd.css";
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
 Vue.use(Antd);
+
 //axios
 import axios from "axios";
 import store from "./store/store";

@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-23 23:14:42
- * @LastEditTime: 2020-08-23 23:15:35
- * @LastEditors: your name
+ * @LastEditTime: 2020-09-13 10:30:12
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\components\yHeader.vue
 -->
@@ -11,7 +11,7 @@
     <div class="yHeader">
         <div class="h_logo">{{homeName}}</div>
         <div class="h_admin">
-            <el-dropdown placement="bottom" @command="handleCommand">
+            <!-- <el-dropdown placement="bottom" @command="handleCommand">
                 <span class="el-dropdown-link">{{userName}}</span>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item command="关于作者">
@@ -22,7 +22,25 @@
                     </el-dropdown-item>
                     <el-dropdown-item command="loginout" divided >退出登陆</el-dropdown-item>
                 </el-dropdown-menu>
-            </el-dropdown>
+            </el-dropdown> -->
+              <a-dropdown>
+                <a class="ant-dropdown-link" @click="e => e.preventDefault()" style="color:#fff">
+                    {{userName}}<a-icon type="down" />
+                </a>
+                <a-menu slot="overlay">
+                    <a-menu-item>
+                        <a target="_blank" href="http://kuiguo.top">关于作者</a>
+                    </a-menu-item>
+                    <a-menu-item>
+                        <a target="_blank" href="https://github.com/kuiguo1991/element-ui-node">项目仓库</a>
+                    </a-menu-item>
+                    <a-menu-divider />
+                    <a-menu-item>
+                        <a href="javascript:;" @click="logoutFun">退出登陆</a>
+                    </a-menu-item>
+                </a-menu>
+            </a-dropdown>
+
         </div>
     </div>
 </template>
@@ -35,23 +53,10 @@
             }
         },
         methods: {
-            handleCommand(command) {
-                if(command==="loginout"){
-                    this.logoutFun()
-                }
-            },
-
             //退出登录
             logoutFun() {
-                var _this = this;
-                this.$confirm('确认退出吗?', '提示', {
-                    type: 'warning'
-                }).then(() => {
-                    sessionStorage.removeItem('user');
-                    _this.$router.push('/Login');
-                }).catch(() => {
-                    console.log("错误！")
-                });
+                sessionStorage.removeItem('user');
+                this.$router.push('/Login');
         }}
     }
 </script>
