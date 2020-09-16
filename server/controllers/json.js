@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-16 16:43:36
- * @LastEditTime: 2020-09-16 17:48:22
+ * @LastEditTime: 2020-09-16 17:58:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\controllers\json.js
@@ -30,7 +30,8 @@ const getJsonNumber = function(req, res) {
         "list|1-10": [
             {
                 // 属性 id 是一个自增数，起始值为 1，每次增 1
-                "id|+1": 1
+                "id|+1": 1,
+                "date": "@datetime"
             }
         ]
     });
