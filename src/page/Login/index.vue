@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-13 23:06:59
+ * @LastEditTime: 2020-09-16 16:24:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\page\Login\index.vue
@@ -12,43 +12,40 @@
 <template>
   <div class="login">
     <div class="login_content">
-        <h3 class="title">系统登录</h3>
-        <a-form :form="form">
-            <a-form-item
-            :label-col="formItemLayout.labelCol"
-            :wrapper-col="formItemLayout.wrapperCol"
-            label="账号"
-            >
-            <a-input
-                v-decorator="[
+      <h3 class="title">系统登录</h3>
+      <a-form :form="form">
+        <a-form-item
+          :label-col="formItemLayout.labelCol"
+          :wrapper-col="formItemLayout.wrapperCol"
+          label="账号"
+        >
+          <a-input
+            v-decorator="[
                 'USERNAME',
                 { rules: [{ required: true, message: '请输入账号' }] },
                 ]"
-                placeholder="请输入账号"
-            />
-            </a-form-item>
-            <a-form-item
-            :label-col="formItemLayout.labelCol"
-            :wrapper-col="formItemLayout.wrapperCol"
-            label="密码"
-            >
-            <a-input
-                v-decorator="[
+            placeholder="请输入账号"
+          />
+        </a-form-item>
+        <a-form-item
+          :label-col="formItemLayout.labelCol"
+          :wrapper-col="formItemLayout.wrapperCol"
+          label="密码"
+        >
+          <a-input
+            v-decorator="[
                 'PASSWORD',
                 { rules: [{ required: true, message: '请输入密码' }] },
                 ]"
-                type="password"
-                placeholder="请输入密码"
-            />
-            </a-form-item>
-            <a-form-item >
-            </a-form-item>
-            <a-form-item :label-col="formTailLayout.labelCol" :wrapper-col="formTailLayout.wrapperCol">
-                <a-button type="primary" @click="handleSubmit">
-                  登录
-                </a-button>
-            </a-form-item>
-        </a-form>
+            type="password"
+            placeholder="请输入密码"
+          />
+        </a-form-item>
+        <a-form-item></a-form-item>
+        <a-form-item :label-col="formTailLayout.labelCol" :wrapper-col="formTailLayout.wrapperCol">
+          <a-button type="primary" @click="handleSubmit">登录</a-button>
+        </a-form-item>
+      </a-form>
     </div>
   </div>
 </template>
@@ -67,20 +64,22 @@ export default {
     return {
       formItemLayout,
       formTailLayout,
-      form: this.$form.createForm(this, { name: 'dynamic_rule' }),
+      form: this.$form.createForm(this, { name: "dynamic_rule" }),
     };
   },
   methods: {
     handleSubmit() {
-      this.form.validateFields((err,loginParams) => {
+      this.form.validateFields((err, loginParams) => {
         if (!err) {
-             console.log(loginParams);
-             if(loginParams.USERNAME === "admin" && loginParams.PASSWORD === "123456"){
-                sessionStorage.setItem("user", JSON.stringify(loginParams));
-                this.$router.push({ path: "/bigScreen" });
-             } else {
-                this.$message.error('账号或密码错误');
-             }
+          if (
+            loginParams.USERNAME === "admin" &&
+            loginParams.PASSWORD === "123456"
+          ) {
+            sessionStorage.setItem("user", JSON.stringify(loginParams));
+            this.$router.push({ path: "/" });
+          } else {
+            this.$message.error("账号或密码错误");
+          }
         }
       });
     },

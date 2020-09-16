@@ -1,13 +1,11 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-13 23:05:34
- * @LastEditTime: 2020-09-13 23:30:35
- * @LastEditors: your name
+ * @LastEditTime: 2020-09-16 10:02:09
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\page\Home\index.vue
 -->
-
-
 
 <template>
   <div class="hIndex">正在开发中1</div>
