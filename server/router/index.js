@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-16 17:30:25
+ * @LastEditTime: 2020-09-16 17:47:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\router\index.js
@@ -13,8 +13,9 @@ const express = require("express");
 const router = express.Router();
 //引入数据模型模块
 
-const Json = require("./../controllers/json")
-router.get("/Json", Json.getJson)
+const Json = require("./../controllers/json");
+router.get("/getJson", Json.getJson);
+router.get("/getJsonNumber", Json.getJsonNumber);
 // const hero = require("./../controllers/hreo")
 // // 查询所有英雄信息路由
 // router.get("/Heros", hero.Heros)
@@ -33,6 +34,5 @@ router.get("/Json", Json.getJson)
 
 // //删除一条英雄信息路由
 // router.delete("/delHero/:id", hero.delHero)
-
 
 module.exports = router;
