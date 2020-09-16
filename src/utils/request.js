@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-16 09:39:58
- * @LastEditTime: 2020-09-16 10:35:05
+ * @LastEditTime: 2020-09-16 18:20:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\utils\request.js
@@ -30,7 +30,7 @@ server.interceptors.request.use(
 server.interceptors.response.use(
     function(response) {
         // 对响应数据做点什么
-        return response;
+        return response.data;
     },
     function(error) {
         // 对响应错误做点什么

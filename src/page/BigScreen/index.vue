@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-13 23:03:43
- * @LastEditTime: 2020-09-16 10:34:05
+ * @LastEditTime: 2020-09-16 18:22:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\page\BigScreen\index.vue
@@ -37,7 +37,7 @@ export default {
     initData() {
       const myChart = this.$echarts.init(document.getElementById("myChart"));
       myChart.showLoading();
-      bigScreenApi.getJson().then((res) => {
+      bigScreenApi.getJsonMap().then((res) => {
         myChart.hideLoading();
         this.$echarts.registerMap("china", res.data);
         const geoCoordMap = {

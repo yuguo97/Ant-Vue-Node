@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-16 17:28:37
+ * @LastEditTime: 2020-09-16 18:09:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\app.js
@@ -39,6 +39,6 @@ app.all("*", function(req, res, next) {
     }
 });
 app.use("/api", index);
-app.listen(7551, () => {
-    console.log("http://localhost:7551/api");
+app.listen(8080, () => {
+    console.log("http://localhost:8080/api");
 });
