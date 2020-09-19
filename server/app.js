@@ -13,8 +13,6 @@ const index = require("./router/index");
 const mongoose = require("mongoose");
 
 const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 //这一句是连接上数据库
 mongoose.connect("mongodb://localhost:27017/test", { useNewUrlParser: true });
 
@@ -38,6 +36,8 @@ app.all("*", function(req, res, next) {
         next();
     }
 });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api", index);
 app.listen(8080, () => {
     console.log("http://localhost:8080/api");
