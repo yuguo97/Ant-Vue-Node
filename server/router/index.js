@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-19 11:46:50
+ * @LastEditTime: 2020-09-20 11:14:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\router\index.js
@@ -18,7 +18,7 @@ router.get("/JSON/getJson", Json.getJson);
 router.get("/JSON/getJsonNumber", Json.getJsonNumber);
 
 const Menu = require("../controllers/menu");
-router.get("/MENU/getMenu", Json.getMenu);
+router.get("/MENU/getMenu", Menu.getMenu);
 // const hero = require("./../controllers/hreo")
 // // 查询所有英雄信息路由
 // router.get("/Heros", hero.Heros)
