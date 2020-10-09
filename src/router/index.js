@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-28 16:27:41
- * @LastEditTime: 2020-09-13 23:02:49
+ * @LastEditTime: 2020-09-20 11:30:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\router\index.js
@@ -82,11 +82,9 @@ export const initRouterMap = [
 ]
 
 
-
-
 export default new Router({
     mode: 'history',
-    base: process.env.BASE_URL,
+    // base: process.env.BASE_URL,
     routes:initRouterMap
 })
 

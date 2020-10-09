@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-13 18:30:58
+ * @LastEditTime: 2020-09-24 23:54:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\components\ySideBar.vue
@@ -48,6 +48,7 @@
 </template>
 <script>
 import { initRouterMap } from "@/router/index";
+import menuApi from "@/api/menu";
 export default {
   data() {
     return {
@@ -55,14 +56,14 @@ export default {
     };
   },
   created() {
+     this.getMenu()
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key);
-    },
-    handleClose(key, keyPath) {
-      console.log(key);
-    },
+    getMenu(){
+        menuApi.getMenu().then(res => {
+           console.log(res)
+        })
+    }
   },
   computed: {
     routes() {

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-16 16:24:36
+ * @LastEditTime: 2020-09-24 23:39:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\page\Login\index.vue
@@ -43,7 +43,7 @@
         </a-form-item>
         <a-form-item></a-form-item>
         <a-form-item :label-col="formTailLayout.labelCol" :wrapper-col="formTailLayout.wrapperCol">
-          <a-button type="primary" @click="handleSubmit">登录</a-button>
+          <a-button type="primary" @click="handleSubmit" style="width:100%">登录</a-button>
         </a-form-item>
       </a-form>
     </div>
