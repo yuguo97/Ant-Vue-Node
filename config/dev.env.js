@@ -12,5 +12,5 @@ const prodEnv = require("./prod.env");
 
 module.exports = merge(prodEnv, {
     NODE_ENV: '"development"',
-    API: '"http://192.168.0.106:8080/api"'
+    API: '"http://127.0.0.1:8080/api"'
 });
