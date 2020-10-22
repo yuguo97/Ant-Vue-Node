@@ -9,5 +9,5 @@
 "use strict";
 module.exports = {
     NODE_ENV: '"production"',
-    API: '"http://192.168.0.8080:8888/api"'
+    API: '"http://127.0.0.1:8080/api"'
 };
