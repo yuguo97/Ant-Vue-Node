@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-11-12 17:04:02
+ * @LastEditTime: 2020-11-12 17:41:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\page\Login\index.vue
@@ -67,6 +67,10 @@ export default {
       form: this.$form.createForm(this, { name: "dynamic_rule" }),
     };
   },
+  created() {
+      var _this = this;
+      document.addEventListener('keydown', _this.watchEnter)
+  },
   methods: {
     handleSubmit() {
       this.form.validateFields((err, loginParams) => {
@@ -82,7 +86,20 @@ export default {
           }
         }
       });
+    },
+
+    watchEnter(e) {
+      var keyNum = window.event ? e.keyCode : e.which; //获取被按下的键值
+      //判断如果用户按下了回车键（keycody=13）
+      if (keyNum == 13) {
+        this.handleSubmit()
+      }
     }
+  },
+
+  destroyed() {
+    var _this = this;
+    document.removeEventListener("keydown", _this.watchEnter);
   },
 };
 </script>
