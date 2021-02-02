@@ -33,7 +33,8 @@
     "vue": "2.5.22",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "xlsx": "^0.14.1"
+    "xlsx": "^0.14.1",
+    "zhiweiyun-topo-editer": "^1.2.67"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
