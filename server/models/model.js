@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2021-02-05 15:28:57
+ * @LastEditTime: 2021-02-05 16:10:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\models\hero.js
@@ -16,7 +16,14 @@ const userSchema = mongoose.Schema(
         age: { type: Number, default: 18 },
         sex: { type: String, default: "0" },
         address: { type: String, default: "湖北" },
-        imgArr: { type: [String], default: ["湖北", "武汉", "襄阳"] }
+        imgArr: {
+            type: [String],
+            default: [
+                "http://ossweb-img.qq.com/images/lol/web201310/skin/big157000.jpg",
+                "http://ossweb-img.qq.com/images/lol/web201310/skin/big157001.jpg",
+                "http://ossweb-img.qq.com/images/lol/web201310/skin/big157002.jpg"
+            ]
+        }
     },
     { collection: "yg_user", versionKey: false }
 );
