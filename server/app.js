@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-16 18:09:16
+ * @LastEditTime: 2021-02-05 12:01:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\app.js
@@ -14,7 +14,10 @@ const mongoose = require("mongoose");
 
 const bodyParser = require("body-parser");
 //这一句是连接上数据库
-mongoose.connect("mongodb://localhost:27017/test", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/yuguo", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 //这里的myDbs是数据库的名字，不是表的名字
 
@@ -39,6 +42,6 @@ app.all("*", function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api", index);
-app.listen(8080, () => {
-    console.log("http://localhost:8080/api");
+app.listen(8085, () => {
+    console.log("http://localhost:8085/api");
 });
