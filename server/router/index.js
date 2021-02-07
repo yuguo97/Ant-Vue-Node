@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2021-02-05 11:48:14
+ * @LastEditTime: 2021-02-07 09:39:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\router\index.js
@@ -13,14 +13,13 @@ const express = require("express");
 const router = express.Router();
 //引入数据模型模块
 
-const Json = require("./../controllers/json");
+const Json = require("../controllers/json");
 router.get("/JSON/getJson", Json.getJson);
-router.get("/JSON/getJsonNumber", Json.getJsonNumber);
 
 const Menu = require("../controllers/menu");
 router.get("/MENU/getMenu", Menu.getMenu);
 
-const hero = require("./../controllers/hreo");
+const hero = require("../controllers/hreo");
 // 查询所有英雄信息路由
 router.get("/Heros", hero.Heros);
 
