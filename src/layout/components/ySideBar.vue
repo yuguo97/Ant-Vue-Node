@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2020-09-24 23:54:40
+ * @LastEditTime: 2021-02-07 15:04:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\src\layout\components\ySideBar.vue
@@ -56,14 +56,14 @@ export default {
     };
   },
   created() {
-     this.getMenu()
+    //  this.getMenu()
   },
   methods: {
-    getMenu(){
-        menuApi.getMenu().then(res => {
-           console.log(res)
-        })
-    }
+    // getMenu(){
+    //     menuApi.getMenu().then(res => {
+    //        console.log(res)
+    //     })
+    // }
   },
   computed: {
     routes() {

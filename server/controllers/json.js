@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-16 16:43:36
- * @LastEditTime: 2021-02-07 09:49:44
+ * @LastEditTime: 2021-02-07 11:18:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\controllers\json.js
@@ -14,11 +14,6 @@ const getJson = function(req, res) {
     fs.readFile(file, "utf-8", function(err, data) {
         if (err) {
             res.send({ code: 500, message: "error" });
-            res.send({
-                code: 200,
-                data: JSON.parse(data),
-                message: "success"
-            });
         }
         res.send({
             code: 200,
