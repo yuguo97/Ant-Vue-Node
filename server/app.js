@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-25 13:57:11
- * @LastEditTime: 2021-02-05 12:01:30
+ * @LastEditTime: 2021-02-18 10:18:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \github\element-ui-node\server\app.js
@@ -42,6 +42,8 @@ app.all("*", function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/api", index);
-app.listen(8085, () => {
-    console.log("http://localhost:8085/api");
+const server = app.listen(8085, "localhost", () => {
+    let host = server.address().address;
+    let port = server.address().port;
+    console.log("Example app listening at http://%s:%s", host, port);
 });
